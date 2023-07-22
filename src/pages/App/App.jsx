@@ -11,12 +11,11 @@ import { getNotes } from '../../utilities/notes-api'
 export default function App() {
   const [user, setUser] = useState(getUser());
 
-  const [notes, setNotes] = useState(getNotes());
+  const [notes, setNotes] = useState([]);
 
   function addNote(note) {
     setNotes([...notes, note])
   }
-  console.log(notes);
 
   return (
     <main className="App main">

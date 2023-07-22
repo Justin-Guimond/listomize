@@ -3,9 +3,9 @@ const router = express.Router();
 
 const notesCtrl = require('../../controllers/api/notes');
 
-// All paths start with '/api/users'
+// All paths start with '/api/notes'
 
-// POST /api/users (create a user - sign up)
 router.get('/', notesCtrl.index);
+router.post('/', notesCtrl.create);
 
 module.exports = router;

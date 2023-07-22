@@ -22,6 +22,6 @@ function handleAddNote(evt) {
         />
         <button type="submit">ADD NOTE</button>
       </form>
-  </>
+    </>
   );
 }
