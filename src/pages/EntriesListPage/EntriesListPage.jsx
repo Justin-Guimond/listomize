@@ -1,31 +1,31 @@
 import { useEffect } from 'react';
 import { checkToken } from '../../utilities/users-service';
-import * as notesService from '../../utilities/notes-service';
+import * as entriesService from '../../utilities/entries-service';
 
-export default function NotesListPage({ notes, setNotes }) {
+export default function NotesListPage({ entries, setEntries }) {
 
   async function handleCheckToken() {
     const expDate = await checkToken();
     alert(expDate);
   }
 
-  const getNote = async() => {
-    const newNotes = await notesService.getNotes();
-    setNotes(newNotes)
+  const getEntry = async() => {
+    const newEntries = await entriesService.getEntries();
+    setEntries(newEntries)
   }
 
   useEffect(() => {
-    getNote()
+    getEntry()
   }, []);  
   return (
     <>
-      <h1>Notes List</h1>
+      <h1>AI Models List</h1>
         <li>
-          {notes.map((n) => {
+          {entries.map((n) => {
             return(
               <>
                 <li>
-                  {n.note}
+                  {n.entry}
                 </li>
               </>
             )
