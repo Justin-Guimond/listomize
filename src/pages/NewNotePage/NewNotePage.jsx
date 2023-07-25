@@ -1,21 +1,30 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import create from '../../utilities/notes-service';
 
 export default function NewNotePage({ addNote }) {
 const [newNote, setNewNote] = useState("");
 
+function handleChange(event) {
+  const note = {...newNote, [event.target.name]: event.target.value}
+  setNewNote(note);
+}
+const navigate = useNavigate();
+
 function handleAddNote(evt) {
   evt.preventDefault();
-  addNote(newNote);
-  setNewNote('');
+  create(newNote);
+  navigate("/notes");
 }
+
 
   return (
     <>
       <h1>Add Note</h1>
       <form onSubmit={handleAddNote}>
         <input
-          value={newNote}
-          onChange={(evt) => setNewNote(evt.target.value)}
+          name='note'
+          onChange={handleChange}
           placeholder="New Note"
           required
           pattern=".{4,}"

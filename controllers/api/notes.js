@@ -12,6 +12,6 @@ res.json(notes);
 }
 
 async function create(req, res) {
-const notes = await Note.create(req.body);
-res.json(notes);
+  const notes = await Note.create(req.body);
+  res.json(notes);
 }
