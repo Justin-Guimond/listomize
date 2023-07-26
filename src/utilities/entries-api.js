@@ -10,3 +10,8 @@ export async function getEntries() {
     return sendRequest(BASE_URL, 'POST', entryData);
   }
 
+  export async function deleteEntry(id) {
+    return sendRequest(`${BASE_URL}/delete/${id}`, 'DELETE');
+  }
+
+// communication between front&back
