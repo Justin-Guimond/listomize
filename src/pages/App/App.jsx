@@ -7,11 +7,11 @@ import NewEntryPage from '../NewEntryPage/NewEntryPage';
 import EntriesListPage from '../EntriesListPage/EntriesListPage';
 import NavBar from '../../components/NavBar/NavBar';
 import HomePage from '../HomePage/HomePage';
+import AboutPage from '../AboutPage/AboutPage';
 // import * as entriesService from '../../utilities/entries-service'
 
 export default function App() {
   const [user, setUser] = useState(getUser());
-
   const [entries, setEntries] = useState([]);
 
   function addEntry(entry) {
@@ -29,8 +29,8 @@ export default function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/entries/new" element={<NewEntryPage addEntry={addEntry}/>} />
               <Route path="/entries" element={<EntriesListPage entries={entries} setEntries={setEntries} />} />
+              <Route path="/about" element={<AboutPage />} />
               <Route path="/*" element={<Navigate to='/entries' />} />
-            
             </Routes>
           </>
           :

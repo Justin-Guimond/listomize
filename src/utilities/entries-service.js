@@ -1,7 +1,8 @@
 import * as entriesAPI from './entries-api'
 
 export default async function create(formData) {
-    const entry = await entriesAPI.createEntry(formData);
+    const newEntry = await entriesAPI.createEntry(formData);
+    return newEntry;
   }
 
   export async function getEntries() {
