@@ -29,7 +29,7 @@ function handleAddEntry(evt) {
           required
           pattern=".{4,}"
         />
-        <button type="submit">ADD AI Model</button>
+        <button type="submit">Add AI Model</button>
       </form>
     </>
   );

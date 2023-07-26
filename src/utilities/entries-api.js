@@ -13,5 +13,6 @@ export async function getEntries() {
   export async function deleteEntry(id) {
     return sendRequest(`${BASE_URL}/delete/${id}`, 'DELETE');
   }
+  
 
 // communication between front&back
