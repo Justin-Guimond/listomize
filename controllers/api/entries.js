@@ -2,7 +2,8 @@ const Entry = require('../../models/entry');
 
 module.exports = {
     create,
-    index
+    index,
+    delete: deleteDay
   };
 
 
@@ -12,6 +13,11 @@ res.json(entries);
 }
 
 async function create(req, res) {
-  const entries = await Note.create(req.body);
+  const entries = await Entry.create(req.body);
   res.json(entries);
 }
+
+async function deleteDay(req, res) {
+    const entry = await Entry.findByIdAndRemove(req.params.id);
+    res.json({message: 'Entry deleted successfully'});
+};

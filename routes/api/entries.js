@@ -7,5 +7,6 @@ const entriesCtrl = require('../../controllers/api/entries');
 
 router.get('/', entriesCtrl.index);
 router.post('/', entriesCtrl.create);
+router.delete('/delete/:id', entriesCtrl.delete);
 
 module.exports = router;
