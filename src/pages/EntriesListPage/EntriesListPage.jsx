@@ -28,12 +28,10 @@ export default function EntriesListPage({ entries, setEntries }) {
       <h1>AI Models List</h1>
           {entries.map((n) => {
             return(
-              <>
-                <li>
+                <li key={n._id}>
                   {n.entry}
                     <button onClick={() => {handleDelete(n._id)}} >Delete</button> 
                 </li>
-              </>
             )
           })}
       <button onClick={handleCheckToken}>Check When My Login Expires</button>
