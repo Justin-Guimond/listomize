@@ -84,7 +84,7 @@ async function handleAddEntry(evt) {
           placeholder='Entry'
           required
         />
-        <button type='submit'>ADD AI Model</button>
+        <button type="submit">Add AI Model</button>
       </form>
     </>
   );
