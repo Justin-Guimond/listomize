@@ -1,12 +1,12 @@
 /* CSS Custom Properties */
 :root {
-  --white: #FFFFFF;
-  --tan-1: #FBF9F6;
-  --tan-2: #E7E2DD;
-  --tan-3: #E2D9D1;
-  --tan-4: #D3C1AE;
-  --orange: #F67F00;
-  --text-light: #968c84;
+  --white: #f2f1f1;
+  --tan-1: #242424;
+  --tan-2: #d3d1d1;
+  --tan-3: #a3a3a3;
+  --tan-4: #242424;
+  --orange: #2059f6;
+  --text-light: #b0b0b0;
   --text-dark: #615954;
 }
 
@@ -24,6 +24,18 @@ body {
   background-color: var(--tan-4);
   padding: 2vmin;
   height: 100vh;
+}
+
+h1, h3, p {
+  color: #ececec;
+}
+
+.navbar-text {
+  color: var(--orange)
+}
+
+li {
+  color: var(--tan-2);
 }
 
 code {
@@ -126,10 +138,11 @@ button, a.button {
   font-weight: bold;
   text-decoration: none;
   text-align: center;
-  border: .1vmin solid var(--tan-2);
+  border: .1vmin solid rgb(85, 85, 85);
   border-radius: .5vmin;
   outline: none;
   cursor: pointer;
+  /* box-shadow: 2px 2px 4px 0px rgba(138, 138, 138, 0.4); */
 }
 
 button.btn-sm {
