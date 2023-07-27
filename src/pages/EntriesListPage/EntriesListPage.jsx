@@ -57,7 +57,7 @@ export default function YourComponent() {
               <Card.Body>
               <Card.Title>{entry.details.AIModel}</Card.Title>
               <Card.Text>{entry.details.entry}</Card.Text>
-              <Button onClick={() => handleUpdateEntry(entry._id, { title: 'Updated Title', description: 'Updated Description' })}>Update</Button>
+              <Button onClick={() => handleUpdateEntry(entry._id, { title: 'Updated Title', description: 'Updated Description' })}>Edit</Button>
               <Button onClick={() => handleDeleteEntry(entry._id)}>Delete</Button>
               {/* add form field with url that auto populates into it's associated 'try it out' button */}
               <Link to='' ><Button variant="primary">Try it out</Button></Link>
