@@ -30,6 +30,10 @@ h1, h3, p {
   color: #ececec;
 }
 
+.navbar-text {
+  color: var(--orange)
+}
+
 li {
   color: var(--tan-2);
 }

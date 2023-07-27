@@ -4,8 +4,9 @@ import { checkToken } from '../../utilities/users-service';
 import * as entriesService from '../../utilities/entries-service';
 import React, { useState, useEffect } from 'react';
 import { getEntries, createEntry, deleteEntry, updateEntry } from '../../utilities/entries-api';
+import { Link } from 'react-router-dom';
 
-function YourComponent() {
+export default function YourComponent() {
   // State to store the list of entries and the data for creating a new entry
   const [entries, setEntries] = useState([]);
   const [newEntryData, setNewEntryData] = useState({ title: '', description: '' });
@@ -48,46 +49,44 @@ function YourComponent() {
   return (
     <>
       <h1>AI Models List</h1>
-                <Card style={{ width: '18rem' }}>
-                  <Card.Img variant="top" src="holder.js/100px180" />
-                  <Card.Body>
-                  <Card.Title>Ex. ChatGPT</Card.Title>
-                  <Card.Text>
-                      Developed by: ???? on xx/xx/xxx <br />
-                      Quick Description:
-                  </Card.Text>
-                  <Button variant="primary">Try it out</Button>
-                  </Card.Body>
-                </Card>
-          {entries.map((n) => {
-            return(
-                <li key={n._id}>
-                  {n.entry}
-                    {/* <button onClick={() => {handleDelete(n._id)}} >Delete</button>  */}
-                </li>
-            )
-          })}
-      {/* <button onClick={handleCheckToken}>Check When My Login Expires</button> */}
+        {entries.map((entry) => (
+          <div key={entry._id}>
+            <Card style={{ width: '18rem' }}>
+              <Card.Img variant="top" src="" />
+              <Card.Body>
+              <Card.Title>{entry.details.AIModel}</Card.Title>
+              <Card.Text>{entry.details.entry}</Card.Text>
+              <Button onClick={() => handleUpdateEntry(entry._id, { title: 'Updated Title', description: 'Updated Description' })}>Update</Button>
+              <Button onClick={() => handleDeleteEntry(entry._id)}>Delete</Button>
+              {/* add form field with url that auto populates into it's associated 'try it out' button */}
+              <Link to='' ><Button variant="primary">Try it out</Button></Link>
+              </Card.Body>
+            </Card>  
+          </div>
+        ))}
+    </>
+  );
+}
 
-      {/* Display the list of entries */}
-      {entries.map((entry) => (
-        <div key={entry._id}>
-          <p>{entry.title}</p>
-          <p>{entry.description}</p>
-          
-          {/* Display the AI model details from n.details */}
-          <p>{entry.details.AIModel}</p>
-          <p>{entry.details.DevelopedBy}</p>
-          <p>{entry.details.ReleasedDate}</p>
-          <p>{entry.details.Pros}</p>
-          <p>{entry.details.Cons}</p>
-          <p>{entry.details.entry}</p>
-          <p>{entry.details.user}</p>
+                          // {/* Display the list of entries */}Move to a new EntryDetailPage?
+                          {/* {entries.map((entry) => (
+                            <div key={entry._id}>
+                              <p>{entry.title}</p>
+                              <p>{entry.description}</p>
+                              
+                              {/* Display the AI model details from n.details */}
+                            //   <p>{entry.details.AIModel}</p>
+                            //   <p>{entry.details.DevelopedBy}</p>
+                            //   <p>{entry.details.ReleasedDate}</p>
+                            //   <p>{entry.details.Pros}</p>
+                            //   <p>{entry.details.Cons}</p>
+                            //   <p>{entry.details.entry}</p>
+                            //   <p>{entry.details.user}</p>
 
-          <button onClick={() => handleDeleteEntry(entry._id)}>Delete</button>
-          <button onClick={() => handleUpdateEntry(entry._id, { title: 'Updated Title', description: 'Updated Description' })}>Update</button>
-        </div>
-      ))}
+                            //   <button onClick={() => handleDeleteEntry(entry._id)}>Delete</button>
+                            //   <button onClick={() => handleUpdateEntry(entry._id, { title: 'Updated Title', description: 'Updated Description' })}>Update</button>
+                            // </div>
+                          // ))} */}
       {/* Input fields to create a new entry */}
       {/* <input
         type="text"
@@ -102,8 +101,3 @@ function YourComponent() {
         onChange={(e) => setNewEntryData({ ...newEntryData, description: e.target.value })}
       />
       <button onClick={handleCreateEntry}>Create Entry</button> */}
-    </>
-  );
-}
-
-export default YourComponent;
