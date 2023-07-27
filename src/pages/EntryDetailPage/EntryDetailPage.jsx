@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { getEntryById } from '../../utilities/entries-service';
 
 export default function EntryDetailPage({  }) {
