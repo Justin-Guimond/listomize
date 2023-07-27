@@ -23,4 +23,9 @@ export async function updateEntry(id, entryData) {
     // Make sure to pass entryData as the third argument
     //must watch word-for-word
 }
+
+export async function getEntryById(id) {
+    return sendRequest(`${BASE_URL}/${id}`);
+  }
+  
 //what i spoke with alexis
