@@ -9,3 +9,8 @@ export default async function create(formData) {
     const entry = await entriesAPI.getEntries();
     return entry
   }
+
+  export async function getEntryById(id) {
+    const entry = await entriesAPI.getEntryById(id); 
+    return entry;
+  }
