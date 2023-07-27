@@ -5,12 +5,14 @@ import * as entriesService from '../../utilities/entries-service';
 import React, { useState, useEffect } from 'react';
 import { getEntries, createEntry, deleteEntry, updateEntry } from '../../utilities/entries-api';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function YourComponent() {
   // State to store the list of entries and the data for creating a new entry
   const [entries, setEntries] = useState([]);
   const [newEntryData, setNewEntryData] = useState({ title: '', description: '' });
 
+  const navigate = useNavigate();
   // Fetch entries when the component mounts
   useEffect(() => {
     fetchEntries();
@@ -31,9 +33,14 @@ export default function YourComponent() {
 
   // Function to delete an entry
   async function handleDeleteEntry(id) {
-    await deleteEntry(id);
-    // Refresh the entries after deleting an entry
-    fetchEntries();
+    try {
+      await deleteEntry(id);
+      // Replace useHistory with useNavigate
+      // Redirect to the EntryListPage after successful deletion
+      navigate('/entries');
+    } catch (error) {
+      console.error('Error deleting entry:', error);
+    }
   }
 //i added console logs to see what is the issue to start debigging ******
   async function handleUpdateEntry(id, updatedData) {
