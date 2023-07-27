@@ -25,7 +25,9 @@ export default function NewEntryPage({ addEntry }) {
     }));
   }
 
+
 const navigate = useNavigate();
+
 
 async function handleAddEntry(evt) {
   evt.preventDefault();
@@ -84,6 +86,9 @@ async function handleAddEntry(evt) {
           placeholder='Entry'
           required
         />
+
+
+
         <button type="submit">Add AI Model</button>
       </form>
     </>
