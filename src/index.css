@@ -26,8 +26,32 @@ body {
   height: 100vh;
 }
 
-h1, h3, p {
+main {
+  margin: 0 auto;
+  max-width: 1000px;
+  padding: 0 10px 0 10px;
+}
+
+.icon {
+  width: 25%;
+  height: 25%;
+  margin-top: 50px;
+}
+
+h1, h3 {
+  margin: 5% 0 10% 0;
+}
+
+h3 {
+  text-align: left;
+}
+
+h1, h3 {
   color: #ececec;
+}
+
+p {
+  color: var(--text-dark)
 }
 
 .navbar-text {

@@ -52,7 +52,8 @@ export default function YourComponent() {
         {entries.map((entry) => (
           <div key={entry._id}>
             <Card style={{ width: '18rem' }}>
-              <Card.Img variant="top" src="" />
+              {/* add form field with img url that gets dynamically put in source below */}
+              <Card.Img variant="top" src="https://blog.routinehub.co/content/images/2023/02/openAI-chat-gpt-1.jpg" />
               <Card.Body>
               <Card.Title>{entry.details.AIModel}</Card.Title>
               <Card.Text>{entry.details.entry}</Card.Text>
