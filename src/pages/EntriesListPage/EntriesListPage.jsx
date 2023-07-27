@@ -50,20 +50,22 @@ export default function YourComponent() {
     <>
       <h1>AI Models List</h1>
         {entries.map((entry) => (
-          <div key={entry._id}>
-            <Card style={{ width: '18rem' }}>
-              {/* add form field with img url that gets dynamically put in source below */}
-              <Card.Img variant="top" src={entry.details.imgURL} />
-              <Card.Body>
-              <Card.Title>{entry.details.AIModel}</Card.Title>
-              <Card.Text>{entry.details.entry}</Card.Text>
-              <Button onClick={() => handleUpdateEntry(entry._id, { title: 'Updated Title', description: 'Updated Description' })}>Edit</Button>
-              <Button onClick={() => handleDeleteEntry(entry._id)}>Delete</Button>
-              {/* add form field with url that auto populates into it's associated 'try it out' button */}
-              <a href={entry.details.tryURL} target="_blank" ><Button variant="primary">Try it out</Button></a>
-              </Card.Body>
-            </Card>  
-          </div>
+          <Link to={`/entries/${entry._id}`} key={entry._id}>
+            <div>
+              <Card style={{ width: '18rem' }}>
+                {/* add form field with img url that gets dynamically put in source below */}
+                <Card.Img variant="top" src={entry.details.imgURL} />
+                <Card.Body>
+                <Card.Title>{entry.details.AIModel}</Card.Title>
+                <Card.Text>{entry.details.entry}</Card.Text>
+                <Button onClick={() => handleUpdateEntry(entry._id, { title: 'Updated Title', description: 'Updated Description' })}>Edit</Button>
+                <Button onClick={() => handleDeleteEntry(entry._id)}>Delete</Button>
+                {/* add form field with url that auto populates into it's associated 'try it out' button */}
+                <a href={entry.details.tryURL} target="_blank" ><Button variant="primary">Try it out</Button></a>
+                </Card.Body>
+              </Card>  
+            </div>
+          </Link>
         ))}
     </>
   );
