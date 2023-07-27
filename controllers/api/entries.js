@@ -1,5 +1,4 @@
 const Entry = require('../../models/entry');
-
 module.exports = {
     create,
     index,
@@ -7,17 +6,15 @@ module.exports = {
     delete: deleteDay,
     show
 };
-
 async function index(req, res) {
     const entries = await Entry.find({});
     res.json(entries);
 }
-
 async function create(req, res) {
     const entry = await Entry.create(req.body);
     res.json(entry);
 }
- // i added this ************ 
+ // i added this ************
 async function edit(req, res) {
     try {
         const updatedEntry = await Entry.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -27,7 +24,6 @@ async function edit(req, res) {
     }
 }
 //i added this **********
-
 async function deleteDay(req, res) {
     try {
         await Entry.findByIdAndRemove(req.params.id);
@@ -35,9 +31,4 @@ async function deleteDay(req, res) {
     } catch (error) {
         res.status(500).json({ message: 'Error deleting the entry' });
     }
-}
-
-async function show(req, res) {
-    const entries = await Entry.findById(req.params.id);
-    res.json(entries);
 }

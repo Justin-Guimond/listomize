@@ -5,6 +5,7 @@ import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
 import NewEntryPage from '../NewEntryPage/NewEntryPage';
 import EntriesListPage from '../EntriesListPage/EntriesListPage';
+import EntryDetailPage from '../EntryDetailPage/EntryDetailPage';
 import NavBar from '../../components/NavBar/NavBar';
 import HomePage from '../HomePage/HomePage';
 import EntryDetailPage from '../EntryDetailPage/EntryDetailPage';
