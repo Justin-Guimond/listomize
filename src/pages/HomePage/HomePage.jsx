@@ -1,20 +1,9 @@
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
 export default function HomePage() {
 
     return (
         <> 
-            <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="holder.js/100px180" />
-            <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-            <Card.Text>
-                Some quick example text to build on the card title and make up the
-                bulk of the card's content.
-            </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
-            </Card.Body>
-            </Card>
+            {/* <img src="https://icons8.com/icon/PYdgh00GlQoV/ai" alt="" />  Why doesn't this work? */}
+            <h3>We are a team of AI enthusiasts passionate about developing and exploring artificial intelligence models. Our goal is to share our knowledge and expertise with the AI community and help advance the field of artificial intelligence. Feel free to explore our collection of AI models and learn more about the exciting world of AI.</h3>
         </>
     )
 }

@@ -26,15 +26,11 @@ body {
   height: 100vh;
 }
 
-h1 {
+h1, h3 {
   color: #ececec;
 }
 
 li {
-  color: var(--tan-2);
-}
-
-nav, .link-style{
   color: var(--tan-2);
 }
 
