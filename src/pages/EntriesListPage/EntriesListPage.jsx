@@ -49,24 +49,31 @@ export default function YourComponent() {
   return (
     <>
       <h1>AI Models List</h1>
-        {entries.map((entry) => (
-          <div key={entry._id}>
+      {entries.map((entry) => (
+        // Wrap the whole card with a Link component and set the "to" prop to the details page URL
+        <Link to={`/entries/${entry._id}`} key={entry._id}>
+          <div>
             <Card style={{ width: '18rem' }}>
               <Card.Img variant="top" src="" />
               <Card.Body>
-              <Card.Title>{entry.details.AIModel}</Card.Title>
-              <Card.Text>{entry.details.entry}</Card.Text>
-              <Button onClick={() => handleUpdateEntry(entry._id, { title: 'Updated Title', description: 'Updated Description' })}>Update</Button>
-              <Button onClick={() => handleDeleteEntry(entry._id)}>Delete</Button>
-              {/* add form field with url that auto populates into it's associated 'try it out' button */}
-              <Link to='' ><Button variant="primary">Try it out</Button></Link>
+                <Card.Title>{entry.details.AIModel}</Card.Title>
+                <Card.Text>{entry.details.entry}</Card.Text>
+                <Button onClick={() => handleUpdateEntry(entry._id, { title: 'Updated Title', description: 'Updated Description' })}>Update</Button>
+                <Button onClick={() => handleDeleteEntry(entry._id)}>Delete</Button>
+                {/* <Link to=''><Button variant="primary">Try it out</Button></Link> */}
               </Card.Body>
-            </Card>  
+            </Card>
           </div>
-        ))}
+        </Link>
+      ))}
     </>
   );
 }
+
+
+
+
+
 
                           // {/* Display the list of entries */}Move to a new EntryDetailPage?
                           {/* {entries.map((entry) => (

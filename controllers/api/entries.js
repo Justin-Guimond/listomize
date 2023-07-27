@@ -4,7 +4,8 @@ module.exports = {
     create,
     index,
     edit,
-    delete: deleteDay
+    delete: deleteDay,
+    show
 };
 
 async function index(req, res) {
@@ -34,4 +35,9 @@ async function deleteDay(req, res) {
     } catch (error) {
         res.status(500).json({ message: 'Error deleting the entry' });
     }
+}
+
+async function show(req, res) {
+    const entries = await Entry.findById(req.params.id);
+    res.json(entries);
 }

@@ -15,6 +15,9 @@ export async function deleteEntry(id) {
 
 }
 
+export async function getEntryById(id) {
+    return sendRequest(`${BASE_URL}/${id}`);
+  }
 
 
 //what i went over with alexis
