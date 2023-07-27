@@ -32,11 +32,11 @@ const entrySchema = new Schema(
         ref: "User",
       },
       tryURL: {
-        type: URL,
+        type: String,
         required: false,
       },
       imgURL: {
-        type: URL,
+        type: String,
         required: true,
       },
     },
