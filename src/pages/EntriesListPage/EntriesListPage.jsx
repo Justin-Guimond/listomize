@@ -53,14 +53,14 @@ export default function YourComponent() {
           <div key={entry._id}>
             <Card style={{ width: '18rem' }}>
               {/* add form field with img url that gets dynamically put in source below */}
-              <Card.Img variant="top" src="https://blog.routinehub.co/content/images/2023/02/openAI-chat-gpt-1.jpg" />
+              <Card.Img variant="top" src={entry.details.imgURL} />
               <Card.Body>
               <Card.Title>{entry.details.AIModel}</Card.Title>
               <Card.Text>{entry.details.entry}</Card.Text>
               <Button onClick={() => handleUpdateEntry(entry._id, { title: 'Updated Title', description: 'Updated Description' })}>Edit</Button>
               <Button onClick={() => handleDeleteEntry(entry._id)}>Delete</Button>
               {/* add form field with url that auto populates into it's associated 'try it out' button */}
-              <Link to='' ><Button variant="primary">Try it out</Button></Link>
+              <a href={entry.details.tryURL} target="_blank" ><Button variant="primary">Try it out</Button></a>
               </Card.Body>
             </Card>  
           </div>
