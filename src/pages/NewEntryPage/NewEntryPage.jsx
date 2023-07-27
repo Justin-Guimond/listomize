@@ -91,13 +91,13 @@ export default function NewEntryPage({ addEntry }) {
           name="tryURL"
           value={newEntry.details.tryURL}
           onChange={handleChange}
-          placeholder="url to try AI"
+          placeholder="URL to AI Model site"
         />
         <textarea
           name="entry"
           value={newEntry.details.entry}
           onChange={handleChange}
-          placeholder="Entry"
+          placeholder="Description"
           required
         />
 
