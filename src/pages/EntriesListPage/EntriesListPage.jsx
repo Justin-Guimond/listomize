@@ -51,23 +51,23 @@ function YourComponent() {
                 <Card style={{ width: '18rem' }}>
                   <Card.Img variant="top" src="holder.js/100px180" />
                   <Card.Body>
-                  <Card.Title>Card Title</Card.Title>
+                  <Card.Title>Ex. ChatGPT</Card.Title>
                   <Card.Text>
-                      Some quick example text to build on the card title and make up the
-                      bulk of the card's content.
+                      Developed by: ???? on xx/xx/xxx <br />
+                      Quick Description:
                   </Card.Text>
-                  <Button variant="primary">Go somewhere</Button>
+                  <Button variant="primary">Try it out</Button>
                   </Card.Body>
                 </Card>
           {entries.map((n) => {
             return(
                 <li key={n._id}>
                   {n.entry}
-                    <button onClick={() => {handleDelete(n._id)}} >Delete</button> 
+                    {/* <button onClick={() => {handleDelete(n._id)}} >Delete</button>  */}
                 </li>
             )
           })}
-      <button onClick={handleCheckToken}>Check When My Login Expires</button>
+      {/* <button onClick={handleCheckToken}>Check When My Login Expires</button> */}
 
       {/* Display the list of entries */}
       {entries.map((entry) => (
@@ -89,7 +89,7 @@ function YourComponent() {
         </div>
       ))}
       {/* Input fields to create a new entry */}
-      <input
+      {/* <input
         type="text"
         placeholder="Title"
         value={newEntryData.title}
@@ -101,7 +101,7 @@ function YourComponent() {
         value={newEntryData.description}
         onChange={(e) => setNewEntryData({ ...newEntryData, description: e.target.value })}
       />
-      <button onClick={handleCreateEntry}>Create Entry</button>
+      <button onClick={handleCreateEntry}>Create Entry</button> */}
     </>
   );
 }
