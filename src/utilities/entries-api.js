@@ -12,7 +12,9 @@ export async function createEntry(entryData) {
 
 export async function deleteEntry(id) {
     return sendRequest(`${BASE_URL}/delete/${id}`, 'DELETE');
+
 }
+
 
 
 //what i went over with alexis

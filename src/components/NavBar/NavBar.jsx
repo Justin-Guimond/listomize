@@ -9,12 +9,14 @@ export default function NavBar({ user, setUser }) {
 
   return (
     <nav>
-      <Link to="/entries">AI Models</Link>
+      <Link className='link-style' to="/entries">AI Models</Link>
       &nbsp; | &nbsp;
-      <Link to="/entries/new">Add</Link>
+      <Link className='link-style' to="/entries/new">Add</Link>
+      &nbsp;&nbsp;
+      <Link to="/about">About</Link>
       &nbsp;&nbsp;
       <span>Welcome, {user.name}</span>
-      &nbsp;&nbsp;<Link to="" onClick={handleLogOut}>Log Out</Link>
+      &nbsp;&nbsp;<Link className='link-style' to="" onClick={handleLogOut}>Log Out</Link>
     </nav>
   );
 }

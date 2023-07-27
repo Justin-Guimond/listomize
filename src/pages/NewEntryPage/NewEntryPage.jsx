@@ -13,6 +13,7 @@ export default function NewEntryPage({ addEntry }) {
       entry: '',
     },
   });
+
   function handleChange(event) {
     const { name, value } = event.target;
     setNewEntry((prevEntry) => ({
@@ -23,7 +24,11 @@ export default function NewEntryPage({ addEntry }) {
       },
     }));
   }
+
+
 const navigate = useNavigate();
+
+
 async function handleAddEntry(evt) {
   evt.preventDefault();
   try {
@@ -34,6 +39,7 @@ async function handleAddEntry(evt) {
     console.error('Failed to create a new entry:', error.message);
   }
 }
+
   return (
     <>
       <h1>Add AI Model</h1>
@@ -80,7 +86,10 @@ async function handleAddEntry(evt) {
           placeholder='Entry'
           required
         />
-        <button type='submit'>ADD AI Model</button>
+
+
+
+        <button type="submit">Add AI Model</button>
       </form>
     </>
   );
