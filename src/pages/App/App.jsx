@@ -8,7 +8,6 @@ import EntriesListPage from '../EntriesListPage/EntriesListPage';
 import EntryDetailPage from '../EntryDetailPage/EntryDetailPage';
 import NavBar from '../../components/NavBar/NavBar';
 import HomePage from '../HomePage/HomePage';
-import EntryDetailPage from '../EntryDetailPage/EntryDetailPage';
 
 // import * as entriesService from '../../utilities/entries-service'
 
