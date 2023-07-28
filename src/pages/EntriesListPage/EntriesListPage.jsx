@@ -7,6 +7,13 @@ import { Link } from "react-router-dom";
 export default function EntriesListPage() {
   // State to store the list of entries
   const [entries, setEntries] = useState([]);
+<<<<<<< HEAD
+=======
+  const [newEntryData, setNewEntryData] = useState({
+    title: "",
+    description: "",
+  });
+>>>>>>> main
 
   useEffect(() => {
     fetchEntries();
