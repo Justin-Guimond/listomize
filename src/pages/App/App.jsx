@@ -9,6 +9,7 @@ import EntryDetailPage from '../EntryDetailPage/EntryDetailPage';
 import UpdateEntryPage from "../UpdateEntryPage/UpdateEntryPage"
 import NavBar from '../../components/NavBar/NavBar';
 import HomePage from '../HomePage/HomePage';
+
 // import * as entriesService from '../../utilities/entries-service'
 
 export default function App() {
@@ -33,7 +34,7 @@ export default function App() {
               <Route path="/*" element={<Navigate to='/entries' />} />
               <Route path="/entries/:id" element={<EntryDetailPage />} />
               {/* VERIFY ROUTE BELOW */}
-              <Route path="/entries/:id" element={<UpdateEntryPage />} />
+              <Route path="/entries/:id/edit" element={<UpdateEntryPage />} />
             </Routes>
           </>
           :

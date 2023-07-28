@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import  { updateEntry } from '../../utilities/entries-api';
 
-export default function EditEntryForm ({ entry }) {
+export default function EditEntryForm ({ entry, handleUpdateEntry }) {
   const [formData, setFormData] = useState({
    details: {
-        AIModel: entry.details.AIModel,
+        AIModel: entry?.details?.AIModel || '',
         DevelopedBy: entry.details.DevelopedBy,
         ReleasedDate: entry.details.ReleasedDate,
         Pros: entry.details.Pros,
@@ -14,17 +13,25 @@ export default function EditEntryForm ({ entry }) {
         imgURL: entry.details.imgURL,
     },
   });
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({
       ...prevFormData,
-      [name]: value,
+      details: {
+        ...prevFormData.details,
+        [name]: value,
+      },
     }));
   };
+
+
   const handleSubmit = (e) => {
     e.preventDefault(); 
-    updateEntry(formData);
+    handleUpdateEntry(formData);
   };
+
+
   return (
     <form onSubmit={handleSubmit}>
     <input

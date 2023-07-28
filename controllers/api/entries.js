@@ -32,6 +32,7 @@ async function deleteDay(req, res) {
         res.status(500).json({ message: 'Error deleting the entry' });
     }
 }
+
 async function show(req, res) {
     const entries = await Entry.findById(req.params.id);
     res.json(entries);
