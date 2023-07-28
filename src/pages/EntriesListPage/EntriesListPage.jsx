@@ -63,77 +63,24 @@ export default function YourComponent() {
   return (
     <>
       <h1>AI Models List</h1>
-      {entries.map((entry) => (
-        <div>
-          <Card style={{ width: "18rem" }}>
-            {/* add form field with img url that gets dynamically put in source below */}
-            <Link to={`/entries/${entry._id}`} key={entry._id}>
-              <Card.Img variant="top" src={entry.details.imgURL} />
-            </Link>
-            <Card.Body>
-              <Card.Title>{entry.details.AIModel}</Card.Title>
-              <Card.Text>{entry.details.entry}</Card.Text>
-              <Button
-                onClick={() =>
-                  handleUpdateEntry(entry._id, {
-                    title: "Updated Title",
-                    description: "Updated Description",
-                  })
-                }
-              >
-                Edit
-              </Button>
-              <Button onClick={() => handleDeleteEntry(entry._id)}>
-                Delete
-              </Button>
-              {/* add form field with url that auto populates into it's associated 'try it out' button */}
-              <a href={entry.details.tryURL} target="_blank">
-                <Button variant="primary">Try it out</Button>
-              </a>
-            </Card.Body>
-          </Card>
-        </div>
-      ))}
+        {entries.map((entry) => (
+            <div>
+              <Link to={`/entries/${entry._id}`} key={entry._id}>
+                <Card style={{ width: '18rem' }}>
+                  {/* add form field with img url that gets dynamically put in source below */}
+                  <Card.Img variant="top" src={entry.details.imgURL} />
+                  <Card.Body>
+                  <Card.Title>{entry.details.AIModel}</Card.Title>
+                  <Card.Text>{entry.details.entry}</Card.Text>
+                  <Button onClick={() => handleUpdateEntry(entry._id, { title: 'Updated Title', description: 'Updated Description' })}>Edit</Button>
+                  <Button onClick={() => handleDeleteEntry(entry._id)}>Delete</Button>
+                  {/* add form field with url that auto populates into it's associated 'try it out' button */}
+                  <a href={entry.details.tryURL} target="_blank" ><Button variant="primary">Try it out</Button></a>
+                  </Card.Body>
+                </Card>  
+               </Link>
+            </div>
+        ))}
     </>
   );
-}
-
-// {/* Display the list of entries */}Move to a new EntryDetailPage?
-{
-  /* {entries.map((entry) => (
-                            <div key={entry._id}>
-                              <p>{entry.title}</p>
-                              <p>{entry.description}</p>
-                              
-                              {/* Display the AI model details from n.details */
-}
-//   <p>{entry.details.AIModel}</p>
-//   <p>{entry.details.DevelopedBy}</p>
-//   <p>{entry.details.ReleasedDate}</p>
-//   <p>{entry.details.Pros}</p>
-//   <p>{entry.details.Cons}</p>
-//   <p>{entry.details.entry}</p>
-//   <p>{entry.details.user}</p>
-
-//   <button onClick={() => handleDeleteEntry(entry._id)}>Delete</button>
-//   <button onClick={() => handleUpdateEntry(entry._id, { title: 'Updated Title', description: 'Updated Description' })}>Update</button>
-// </div>
-// ))} */}
-{
-  /* Input fields to create a new entry */
-}
-{
-  /* <input
-        type="text"
-        placeholder="Title"
-        value={newEntryData.title}
-        onChange={(e) => setNewEntryData({ ...newEntryData, title: e.target.value })}
-      />
-      <input
-        type="text"
-        placeholder="Description"
-        value={newEntryData.description}
-        onChange={(e) => setNewEntryData({ ...newEntryData, description: e.target.value })}
-      />
-      <button onClick={handleCreateEntry}>Create Entry</button> */
 }
