@@ -7,13 +7,10 @@ import { Link } from "react-router-dom";
 export default function EntriesListPage() {
   // State to store the list of entries
   const [entries, setEntries] = useState([]);
-<<<<<<< HEAD
-=======
   const [newEntryData, setNewEntryData] = useState({
     title: "",
     description: "",
   });
->>>>>>> main
 
   useEffect(() => {
     fetchEntries();
@@ -35,22 +32,22 @@ export default function EntriesListPage() {
       <h1>AI Models List</h1>
       {entries.map((entry) => (
         <div key={entry._id}>
-          <Link to={`/entries/${entry._id}`}>
-            <Card style={{ width: "18rem" }}>
+          <Card style={{ width: "18rem" }}>
+            <Link to={`/entries/${entry._id}`}>
               <Card.Img variant="top" src={entry.details.imgURL} />
-              <Card.Body>
-                <Card.Title>{entry.details.AIModel}</Card.Title>
-                <Card.Text>{entry.details.entry}</Card.Text>
-                {/* Use onClick event to open URL in a new tab */}
-                <Button
-                  variant="primary"
-                  onClick={() => handleTryItOut(entry.details.tryURL)}
-                >
-                  Try it out
-                </Button>
-              </Card.Body>
-            </Card>
-          </Link>
+            </Link>
+            <Card.Body>
+              <Card.Title>{entry.details.AIModel}</Card.Title>
+              <Card.Text>{entry.details.entry}</Card.Text>
+              {/* Use onClick event to open URL in a new tab */}
+              <Button
+                variant="primary"
+                onClick={() => handleTryItOut(entry.details.tryURL)}
+              >
+                Try it out
+              </Button>
+            </Card.Body>
+          </Card>
         </div>
       ))}
     </>
