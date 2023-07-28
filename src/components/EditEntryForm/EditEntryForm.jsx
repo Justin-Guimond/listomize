@@ -77,7 +77,7 @@ export default function EditEntryForm ({ entry }) {
       required
     />
 
-    <button type="submit">Add AI Model</button>
+    <button type="submit">Update AI Model</button>
   </form>
     // <form onSubmit={handleSubmit}>
     //   <div>
