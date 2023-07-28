@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
-export default function EntryDetailPage() {
+export default function EntryDetailPage({}) {
   const { id } = useParams();
   const [entry, setEntry] = useState(null);
   const [entries, setEntries] = useState([]);
@@ -43,14 +43,14 @@ export default function EntryDetailPage() {
   }
 
   async function handleDeleteEntry(id) {
-   deleteEntry(id);
-      // Replace useHistory with useNavigate
-      // Redirect to the EntryListPage after successful deletion
+     await deleteEntry(id);
+   }
+  //     // Replace useHistory with useNavigate
+  //     // Redirect to the EntryListPage after successful deletion
   //     navigate("/entries");
   //   } catch (error) {
   //     console.error("Error deleting entry:", error);
-    
-  }
+  // }
 
   async function handleUpdateEntry(id, updatedData) {
     console.log("handleUpdateEntry called with id:", id);
@@ -70,7 +70,6 @@ export default function EntryDetailPage() {
   return (
     <>
       <h1>AI Model Details</h1>
-        {entries.map((entry) => (
             <div>            
                 <Card style={{ width: '18rem' }}>
                   <Card.Img variant="top" src={entry.details.imgURL} />
@@ -90,7 +89,6 @@ export default function EntryDetailPage() {
                 </Card>  
               {/* <EditEntryForm entry={entry} /> */}
           </div>
-        ))}
     </>
   );
 }
