@@ -6,6 +6,7 @@ import AuthPage from '../AuthPage/AuthPage';
 import NewEntryPage from '../NewEntryPage/NewEntryPage';
 import EntriesListPage from '../EntriesListPage/EntriesListPage';
 import EntryDetailPage from '../EntryDetailPage/EntryDetailPage';
+import UpdateEntryPage from "../UpdateEntryPage/UpdateEntryPage"
 import NavBar from '../../components/NavBar/NavBar';
 import HomePage from '../HomePage/HomePage';
 import EntryDetailPage from '../EntryDetailPage/EntryDetailPage';
@@ -33,6 +34,8 @@ export default function App() {
               <Route path="/entries" element={<EntriesListPage entries={entries} setEntries={setEntries} />} />
               <Route path="/*" element={<Navigate to='/entries' />} />
               <Route path="/entries/:id" element={<EntryDetailPage />} />
+              {/* VERIFY ROUTE BELOW */}
+              <Route path="/entries/:id" element={<UpdateEntryPage />} />
             </Routes>
           </>
           :
