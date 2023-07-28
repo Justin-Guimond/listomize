@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { signUp } from "../../utilities/users-service";
-import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default class SignUpForm extends Component {
   state = {
@@ -10,6 +10,7 @@ export default class SignUpForm extends Component {
     confirm: "",
     error: "",
   };
+  nav = useNavigate();
 
   handleChange = (evt) => {
     this.setState({
@@ -28,7 +29,7 @@ export default class SignUpForm extends Component {
       // in the payload of the JSON Web Token (JWT)
       const user = await signUp(formData);
       this.props.setUser(user);
-      return redirect("/");
+      this.nav("/");
     } catch {
       // An error occurred
       // Probably due to a duplicate email

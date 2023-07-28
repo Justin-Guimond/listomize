@@ -13,7 +13,7 @@ export default function EntriesListPage() {
     title: "",
     description: "",
   });
-  
+
   useEffect(() => {
     fetchEntries();
   }, []);
@@ -27,20 +27,22 @@ export default function EntriesListPage() {
   return (
     <>
       <h1>AI Models List</h1>
-        {entries.map((entry) => (
-            <div>
-              <Link to={`/entries/${entry._id}`} key={entry._id}>
-                <Card style={{ width: '18rem' }}>
-                  <Card.Img variant="top" src={entry.details.imgURL} />
-                  <Card.Body>
-                  <Card.Title>{entry.details.AIModel}</Card.Title>
-                  <Card.Text>{entry.details.entry}</Card.Text>
-                  <a href={entry.details.tryURL} target="_blank" ><Button variant="primary">Try it out</Button></a>
-                  </Card.Body>
-                </Card>  
-               </Link>
-            </div>
-        ))}
+      {entries.map((entry) => (
+        <div>
+          <Card style={{ width: "18rem" }}>
+            <Link to={`/entries/${entry._id}`} key={entry._id}>
+              <Card.Img variant="top" src={entry.details.imgURL} />
+            </Link>
+            <Card.Body>
+              <Card.Title>{entry.details.AIModel}</Card.Title>
+              <Card.Text>{entry.details.entry}</Card.Text>
+              <a href={entry.details.tryURL} target="_blank">
+                <Button variant="primary">Try it out</Button>
+              </a>
+            </Card.Body>
+          </Card>
+        </div>
+      ))}
     </>
   );
 }
