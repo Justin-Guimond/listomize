@@ -22,3 +22,6 @@ export async function updateEntry(id, entryData) {
     //must watch word-for-word
 }
 
+export async function getEntryById(id) {
+    return sendRequest(`${BASE_URL}/${id}`);
+  }

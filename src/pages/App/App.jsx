@@ -34,7 +34,7 @@ export default function App() {
               <Route path="/*" element={<Navigate to='/entries' />} />
               <Route path="/entries/:id" element={<EntryDetailPage />} />
               {/* VERIFY ROUTE BELOW */}
-              <Route path="/entries/:id" element={<UpdateEntryPage />} />
+              <Route path="/entries/:id/edit" element={<UpdateEntryPage />} />
             </Routes>
           </>
           :
