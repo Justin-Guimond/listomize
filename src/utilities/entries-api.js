@@ -15,8 +15,6 @@ export async function deleteEntry(id) {
 
 }
 
-
-
 //what i went over with alexis
 export async function updateEntry(id, entryData) {
     return sendRequest(`${BASE_URL}/${id}`, 'PUT', entryData); 

@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getEntryById } from '../../utilities/entries-service';
+import EditEntryForm from '../EditEntryForm/EditEntryForm';
 
-export default function EntryDetailPage({  }) {
+
+export default function EntryDetailPage() {
   const { id } = useParams();
   const [entry, setEntry] = useState(null);
-
 
   async function fetchEntryDetails() {
     try {
@@ -18,11 +19,9 @@ export default function EntryDetailPage({  }) {
   useEffect(() => {
     fetchEntryDetails();
   }, []);
-
   if (!entry) {
     return <div>Loading...</div>;
   }
-
   return (
     <div>
       <h1>AI Model Details</h1>
@@ -31,6 +30,9 @@ export default function EntryDetailPage({  }) {
       <p>Released Date: {entry.details.ReleasedDate}</p>
       <p>Pros: {entry.details.Pros}</p>
       <p>Cons: {entry.details.Cons}</p>
+      {/* Insert the EditEntryForm component here ***a note to myself */} 
+      {/* <EditEntryForm /> */}
+      <EditEntryForm entry={entry} />
     </div>
   );
 }
