@@ -37,7 +37,6 @@ const entrySchema = new Schema(
       },
       imgURL: {
         type: String,
-        required: true,
       },
     },
   },
