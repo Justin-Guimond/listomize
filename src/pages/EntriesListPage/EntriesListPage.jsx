@@ -5,12 +5,8 @@ import { getEntries } from "../../utilities/entries-api";
 import { Link } from "react-router-dom";
 
 export default function EntriesListPage() {
-  // State to store the list of entries
   const [entries, setEntries] = useState([]);
-  const [newEntryData, setNewEntryData] = useState({
-    title: "",
-    description: "",
-  });
+
 
   useEffect(() => {
     fetchEntries();
@@ -39,7 +35,6 @@ export default function EntriesListPage() {
               <Card.Body>
                 <Card.Title>{entry.details.AIModel}</Card.Title>
                 <Card.Text>{entry.details.entry}</Card.Text>
-                {/* Use onClick event to open URL in a new tab */}
                 <Button
                   variant="primary"
                   onClick={() => handleTryItOut(entry.details.tryURL)}

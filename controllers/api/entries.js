@@ -14,7 +14,7 @@ async function create(req, res) {
     const entry = await Entry.create(req.body);
     res.json(entry);
 }
- // i added this ************
+
 async function edit(req, res) {
     try {
         const updatedEntry = await Entry.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -23,7 +23,7 @@ async function edit(req, res) {
         res.status(500).json({ message: 'Error updating the entry' });
     }
 }
-//i added this **********
+
 async function deleteDay(req, res) {
     try {
         await Entry.findByIdAndRemove(req.params.id);
