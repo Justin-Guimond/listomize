@@ -14,7 +14,7 @@
   box-sizing: border-box;
 }
 
-.navbar-expand {
+.bg-body-tertiary.navbar.navbar-expand-sm.navbar-light {
   border-radius: 5px;
 }
 
@@ -40,6 +40,10 @@ main {
   display: inline-block;
   margin: 15px 15px;
   text-align: center;
+}
+
+.card-text {
+  min-height: 50px;
 }
 
 .detail-card {
