@@ -36,6 +36,11 @@ export default function EntryDetailPage() {
       }
     }
   
+    const formatDate = (dateString) => {
+      const date = new Date(dateString);
+      return date.toISOString().split('T')[0];
+    }
+
     async function handleUpdateEntry(updatedData) {
         console.log("handleUpdateEntry called with id:", id);
         console.log("updatedData:", updatedData);
@@ -66,7 +71,7 @@ export default function EntryDetailPage() {
                 <Card.Title>{entry.details.AIModel}</Card.Title>
                 <Card.Text>{entry.details.entry}</Card.Text>
                 <Card.Text><b>Developed by: </b>{entry.details.DevelopedBy}</Card.Text>
-                <Card.Text><b>Released: </b>{entry.details.ReleasedDate}</Card.Text>
+                <Card.Text><b>Released: </b>{formatDate(entry.details.ReleasedDate)}</Card.Text>
                 <Card.Text><b>Pros: </b>{entry.details.Pros}</Card.Text>
                 <Card.Text><b>Cons: </b>{entry.details.Cons}</Card.Text>
                 <Button onClick={() => setIsEditing(true)}>Edit</Button>
