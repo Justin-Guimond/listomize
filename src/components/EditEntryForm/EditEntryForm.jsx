@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 export default function EditEntryForm ({ entry, handleUpdateEntry }) {
   const [formData, setFormData] = useState({
    details: {
-        AIModel: entry?.details?.AIModel || '',
+        AIModel: entry.details.AIModel || '',
         DevelopedBy: entry.details.DevelopedBy,
         ReleasedDate: entry.details.ReleasedDate,
         Pros: entry.details.Pros,
@@ -36,50 +36,50 @@ export default function EditEntryForm ({ entry, handleUpdateEntry }) {
     <form onSubmit={handleSubmit}>
     <input
       name="AIModel"
-      value={formData.AIModel}
+      value={formData.details.AIModel}
       onChange={handleChange}
       required
     />
     <input
       name="DevelopedBy"
-      value={formData.DevelopedBy}
+      value={formData.details.DevelopedBy}
       onChange={handleChange}
       required
     />
     <input
       name="ReleasedDate"
-      value={formData.ReleasedDate}
+      value={formData.details.ReleasedDate}
       onChange={handleChange}
       type="date"
       required
     />
     <input
       name="Pros"
-      value={formData.Pros}
+      value={formData.details.Pros}
       onChange={handleChange}
       required
     />
     <input
       name="Cons"
-      value={formData.Cons}
+      value={formData.details.Cons}
       onChange={handleChange}
       required
     />
     <input
       type="url"
       name="imgURL"
-      value={formData.imgURL}
+      value={formData.details.imgURL}
       onChange={handleChange}
     />
     <input
       type="url"
       name="tryURL"
-      value={formData.tryURL}
+      value={formData.details.tryURL}
       onChange={handleChange}
     />
     <textarea
       name="entry"
-      value={formData.entry}
+      value={formData.details.entry}
       onChange={handleChange}
       required
     />
