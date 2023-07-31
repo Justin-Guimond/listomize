@@ -30,26 +30,26 @@ export default function EntriesListPage() {
   return (
     <>
       <h1>AI Models List</h1>
-      {entries.map((entry) => (
-        <div key={entry._id}>
-          <Card style={{ width: "18rem" }}>
-            <Link to={`/entries/${entry._id}`}>
-              <Card.Img variant="top" src={entry.details.imgURL} />
-            </Link>
-            <Card.Body>
-              <Card.Title>{entry.details.AIModel}</Card.Title>
-              <Card.Text>{entry.details.entry}</Card.Text>
-              {/* Use onClick event to open URL in a new tab */}
-              <Button
-                variant="primary"
-                onClick={() => handleTryItOut(entry.details.tryURL)}
-              >
-                Try it out
-              </Button>
-            </Card.Body>
-          </Card>
-        </div>
-      ))}
+        {entries.map((entry) => (
+          <div className='card-container' key={entry._id}>
+            <Card style={{ width: "18rem" }}>
+              <Link to={`/entries/${entry._id}`}>
+                <Card.Img variant="top" src={entry.details.imgURL} />
+              </Link>
+              <Card.Body>
+                <Card.Title>{entry.details.AIModel}</Card.Title>
+                <Card.Text>{entry.details.entry}</Card.Text>
+                {/* Use onClick event to open URL in a new tab */}
+                <Button
+                  variant="primary"
+                  onClick={() => handleTryItOut(entry.details.tryURL)}
+                >
+                  Try it out
+                </Button>
+              </Card.Body>
+            </Card>
+          </div>
+         ))}
     </>
   );
 }

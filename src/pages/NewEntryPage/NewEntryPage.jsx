@@ -84,14 +84,14 @@ export default function NewEntryPage({ addEntry }) {
           name="imgURL"
           value={newEntry.details.imgURL}
           onChange={handleChange}
-          placeholder="image URL"
+          placeholder="Image URL"
         />
         <input
           type="url"
           name="tryURL"
           value={newEntry.details.tryURL}
           onChange={handleChange}
-          placeholder="URL to AI Model site"
+          placeholder="URL to AI Model Site"
         />
         <textarea
           name="entry"
