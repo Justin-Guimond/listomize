@@ -42,13 +42,13 @@ export default function NewEntryPage({ addEntry }) {
 
   return (
     <>
-      <h1>Add AI Model</h1>
+      <h1>Add AI App</h1>
       <form onSubmit={handleAddEntry}>
         <input
           name="AIModel"
           value={newEntry.details.AIModel}
           onChange={handleChange}
-          placeholder="AI Model"
+          placeholder="AI App"
           required
         />
         <input
@@ -91,7 +91,7 @@ export default function NewEntryPage({ addEntry }) {
           name="tryURL"
           value={newEntry.details.tryURL}
           onChange={handleChange}
-          placeholder="URL to AI Model Site"
+          placeholder="URL to AI App"
         />
         <textarea
           name="entry"
@@ -101,7 +101,7 @@ export default function NewEntryPage({ addEntry }) {
           required
         />
 
-        <button type="submit">Add AI Model</button>
+        <button type="submit">Add AI App</button>
       </form>
     </>
   );

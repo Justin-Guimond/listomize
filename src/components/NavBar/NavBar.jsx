@@ -18,7 +18,7 @@ export default function NavBar({ user, setUser }) {
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
             <Nav>
-              <Nav.Link as={Link} to="/entries">AI Models</Nav.Link>
+              <Nav.Link as={Link} to="/entries">AI Apps</Nav.Link>
               &nbsp;&nbsp;
               <Nav.Link as={Link} to="/entries/new">Add</Nav.Link>
               &nbsp;&nbsp;
