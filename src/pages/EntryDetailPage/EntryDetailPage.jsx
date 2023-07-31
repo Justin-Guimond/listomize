@@ -59,16 +59,16 @@ export default function EntryDetailPage() {
         {isEditing ? (
           <EditEntryForm entry={entry} handleUpdateEntry={handleUpdateEntry} />
         ) : (
-          <div>
+          <div className="detail-card" >
             <Card style={{ width: '18rem' }}>
               <Card.Img variant="top" src={entry.details.imgURL} />
               <Card.Body>
                 <Card.Title>{entry.details.AIModel}</Card.Title>
                 <Card.Text>{entry.details.entry}</Card.Text>
-                <Card.Text>Developed by: {entry.details.DevelopedBy}</Card.Text>
-                <Card.Text>Released: {entry.details.ReleasedDate}</Card.Text>
-                <Card.Text>Pros: {entry.details.Pros}</Card.Text>
-                <Card.Text>Cons: {entry.details.Cons}</Card.Text>
+                <Card.Text><b>Developed by: </b>{entry.details.DevelopedBy}</Card.Text>
+                <Card.Text><b>Released: </b>{entry.details.ReleasedDate}</Card.Text>
+                <Card.Text><b>Pros: </b>{entry.details.Pros}</Card.Text>
+                <Card.Text><b>Cons: </b>{entry.details.Cons}</Card.Text>
                 <Button onClick={() => setIsEditing(true)}>Edit</Button>
                 <Button onClick={() => handleDeleteEntry(entry._id)}>Delete</Button>
               </Card.Body>
