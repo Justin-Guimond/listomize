@@ -57,6 +57,11 @@ export default function EntryDetailPage() {
     if (!entry) {
       return <div>Loading...</div>;
     }
+
+      // Function to open the "Try it out" URL in a new tab
+    function handleTryItOut(url) {
+    window.open(url, "_blank", "noopener noreferrer");
+    }
   
     return (
       <>
@@ -76,6 +81,12 @@ export default function EntryDetailPage() {
                 <Card.Text><b>Cons: </b>{entry.details.Cons}</Card.Text>
                 <Button onClick={() => setIsEditing(true)}>Edit</Button>
                 <Button onClick={() => handleDeleteEntry(entry._id)}>Delete</Button>
+                <Button
+                  variant="primary"
+                  onClick={() => handleTryItOut(entry.details.tryURL)}
+                >
+                  Try it out
+                </Button>
               </Card.Body>
             </Card>
           </div>
