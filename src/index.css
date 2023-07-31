@@ -192,7 +192,6 @@ button, a.button {
   border-radius: .5vmin;
   outline: none;
   cursor: pointer;
-  /* box-shadow: 2px 2px 4px 0px rgba(138, 138, 138, 0.4); */
 }
 
 button.btn-sm {
