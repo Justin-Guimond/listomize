@@ -46,6 +46,9 @@ export default function EntriesListPage() {
                 >
                   Try it out
                 </Button>
+                <Link to={`/entries/${entry._id}`}>
+                <Button>Details</Button>
+                </Link>
               </Card.Body>
             </Card>
           </div>
