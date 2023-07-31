@@ -29,7 +29,7 @@ export default function EntriesListPage() {
 
   return (
     <>
-      <h1>AI Models List</h1>
+      <h1>AI Apps List</h1>
         {entries.map((entry) => (
           <div className='card-container' key={entry._id}>
             <Card style={{ width: "18rem" }}>

@@ -84,34 +84,7 @@ export default function EditEntryForm ({ entry, handleUpdateEntry }) {
       required
     />
 
-    <button type="submit">Update AI Model</button>
+    <button type="submit">Update AI App</button>
   </form>
-    // <form onSubmit={handleSubmit}>
-    //   <div>
-    //     <label>AI Model:</label>
-    //     <input type="text" name="AIModel" value={formData.AIModel} onChange={handleChange} />
-    //   </div>
-    //   <div>
-    //     <label>Developed By:</label>
-    //     <input type="text" name="DevelopedBy" value={formData.DevelopedBy} onChange={handleChange} />
-    //   </div>
-    //   <div>
-    //     <label>Released Date:</label>
-    //     <input type="date" name="ReleasedDate" value={formData.ReleasedDate} onChange={handleChange} />
-    //   </div>
-    //   <div>
-    //     <label>Pros:</label>
-    //     <input type="text" name="Pros" value={formData.Pros} onChange={handleChange} />
-    //   </div>
-    //   <div>
-    //     <label>Cons:</label>
-    //     <input type="text" name="Cons" value={formData.Cons} onChange={handleChange} />
-    //   </div>
-    //   <div>
-    //     <label>Description:</label>
-    //     <textarea name="entry" value={formData.entry} onChange={handleChange} />
-    //   </div>
-    //   <button type="submit">Save Changes</button>
-    // </form>
   );
 };
