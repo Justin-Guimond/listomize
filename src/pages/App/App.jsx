@@ -33,7 +33,6 @@ export default function App() {
               <Route path="/entries" element={<EntriesListPage entries={entries} setEntries={setEntries} />} />
               <Route path="/*" element={<Navigate to='/entries' />} />
               <Route path="/entries/:id" element={<EntryDetailPage />} />
-              {/* VERIFY ROUTE BELOW */}
               <Route path="/entries/:id/edit" element={<UpdateEntryPage />} />
             </Routes>
           </>

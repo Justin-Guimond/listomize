@@ -10,7 +10,6 @@ export default class SignUpForm extends Component {
     confirm: "",
     error: "",
   };
-  nav = useNavigate();
 
   handleChange = (evt) => {
     this.setState({
@@ -29,7 +28,6 @@ export default class SignUpForm extends Component {
       // in the payload of the JSON Web Token (JWT)
       const user = await signUp(formData);
       this.props.setUser(user);
-      this.nav("/");
     } catch {
       // An error occurred
       // Probably due to a duplicate email
