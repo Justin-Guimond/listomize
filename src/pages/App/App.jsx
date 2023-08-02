@@ -10,8 +10,6 @@ import UpdateEntryPage from "../UpdateEntryPage/UpdateEntryPage"
 import NavBar from '../../components/NavBar/NavBar';
 import HomePage from '../HomePage/HomePage';
 
-// import * as entriesService from '../../utilities/entries-service'
-
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [entries, setEntries] = useState([]);
@@ -27,7 +25,6 @@ export default function App() {
           <>
             <NavBar user={user} setUser={setUser} />
             <Routes>
-              {/* Route components in here */}
               <Route path="/" element={<HomePage />} />
               <Route path="/entries/new" element={<NewEntryPage addEntry={addEntry}/>} />
               <Route path="/entries" element={<EntriesListPage entries={entries} setEntries={setEntries} />} />

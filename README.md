@@ -8,5 +8,5 @@
 #### Please do not delete any data
 
 ### Future Improvements 
-#### Allow users to vote thumbs up/thumbs down for each app
+#### Allow users to vote thumbs up/thumbs down for each app and leave comments of how the apps helps them best
 #### Only allow admin to delete entries
