@@ -65,7 +65,7 @@ export default function EntryDetailPage() {
   
     return (
       <>
-        <h1>AI App Details</h1>
+        <h1>Movies</h1>
         {isEditing ? (
           <EditEntryForm entry={entry} handleUpdateEntry={handleUpdateEntry} />
         ) : (
