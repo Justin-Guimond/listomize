@@ -2,28 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const entrySchema = new Schema(
   {
-    details: {
-      AIModel: {
-        type: String,
-        required: true,
-      },
-      DevelopedBy: {
-        type: String,
-        required: true,
-      },
-      ReleasedDate: {
-        type: Date,
-        required: true,
-      },
-      Pros: {
-        type: String,
-        required: true,
-      },
-      Cons: {
-        type: String,
-        required: true,
-      },
-      entry: {
+      List: {
         type: String,
         required: true,
       },
@@ -31,15 +10,7 @@ const entrySchema = new Schema(
         type: Schema.Types.ObjectId,
         ref: "User",
       },
-      tryURL: {
-        type: String,
-        required: false,
-      },
-      imgURL: {
-        type: String,
-      },
     },
-  },
   {
     timestamps: true,
   }

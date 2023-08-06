@@ -25,8 +25,7 @@ export default function App() {
             <NavBar user={user} setUser={setUser} />
             <Routes>
               {/* <Route path="/" element={<HomePage />} /> */}
-              <Route path="/entries/new" element={<NewEntryPage addEntry={addEntry}/>} />
-              <Route path="/" element={<EntriesListPage entries={entries} setEntries={setEntries} />} />
+              <Route path="/" element={<EntriesListPage entries={entries} setEntries={setEntries} addEntry={addEntry}/>} />
               <Route path="/*" element={<Navigate to='/entries' />} />
               <Route path="/entries/:id" element={<EntryDetailPage />} />
               <Route path="/entries/:id/edit" element={<UpdateEntryPage />} />

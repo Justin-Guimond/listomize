@@ -21,4 +21,4 @@ export default function UpdateEntryPage({ entry }) {
       <EditEntryForm entry={entry} handleUpdateEntry={handleUpdateEntry} />
     </div>
   );
-}
+} 
