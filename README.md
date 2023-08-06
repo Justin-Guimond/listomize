@@ -1,12 +1,10 @@
-# AI Central
+# Listomize
 
-### Your ultimate destination for exploring and contributing to the world of Artificial Intelligence. As an innovative and collaborative platform, AI Central brings together AI enthusiasts, researchers, and developers from around the globe to showcase, discover, and exchange cutting-edge AI apps.
+### Decisions made easy. Having a tough time deciding which restaurant to eat at or which movie to watch? Listomize allows you to create a list of potential options and randomly generate one of these options with the push of a button. No more waisting time contemplating simple decisions anymore!
 
-## Technologies Used: MERN Stack, bootstrap
+## Technologies Used: MERN Stack
 
-### Link to live webapp: https://ai-central-28a4cb909677.herokuapp.com/
+### Link to live webapp: 
 #### Please do not delete any data
 
 ### Future Improvements 
-#### Allow users to vote thumbs up/thumbs down for each app and leave comments of how the apps helps them best
-#### Only allow admin to delete entries
