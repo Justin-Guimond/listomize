@@ -24,10 +24,8 @@ export default function EntriesListPage({ addEntry }) {
     const { name, value } = event.target;
     setNewEntry((prevEntry) => ({
       ...prevEntry,
-      details: {
-        ...prevEntry.details,
+        ...prevEntry,
         [name]: value,
-      },
     }));
   }
 
