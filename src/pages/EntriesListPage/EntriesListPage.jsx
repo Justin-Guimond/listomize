@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getEntries } from "../../utilities/entries-api";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import create from "../../utilities/entries-service";
 
 export default function EntriesListPage({ addEntry }) {
@@ -29,7 +29,7 @@ export default function EntriesListPage({ addEntry }) {
     }));
   }
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   async function handleAddEntry(evt) {
     evt.preventDefault();
@@ -58,7 +58,7 @@ export default function EntriesListPage({ addEntry }) {
       </form>        
       {entries.map((entry) => (
           <div className='card-container' key={entry._id}>
-          </div>
+          {entry.List}</div>
          ))}
     </>
   );
