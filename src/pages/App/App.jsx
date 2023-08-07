@@ -3,7 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
-import NewEntryPage from '../NewEntryPage/NewEntryPage';
+// import NewEntryPage from '../NewEntryPage/NewEntryPage';
 import EntriesListPage from '../EntriesListPage/EntriesListPage';
 import EntryDetailPage from '../EntryDetailPage/EntryDetailPage';
 import UpdateEntryPage from "../UpdateEntryPage/UpdateEntryPage"
@@ -26,7 +26,7 @@ export default function App() {
             <Routes>
               {/* <Route path="/" element={<HomePage />} /> */}
               <Route path="/" element={<EntriesListPage entries={entries} setEntries={setEntries} addEntry={addEntry}/>} />
-              <Route path="/*" element={<Navigate to='/entries' />} />
+              <Route path="/*" element={<Navigate to='/' />} />
               <Route path="/entries/:id" element={<EntryDetailPage />} />
               <Route path="/entries/:id/edit" element={<UpdateEntryPage />} />
             </Routes>

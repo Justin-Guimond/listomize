@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getEntries } from "../../utilities/entries-api";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import create from "../../utilities/entries-service";
 
 export default function EntriesListPage({ addEntry }) {
@@ -23,20 +23,20 @@ export default function EntriesListPage({ addEntry }) {
   function handleChange(event) {
     const { name, value } = event.target;
     setNewEntry((prevEntry) => ({
-      ...prevEntry,
-        ...prevEntry,
+      ...prevEntry, 
         [name]: value,
     }));
   }
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   async function handleAddEntry(evt) {
     evt.preventDefault();
     try {
       const createdEntry = await create(newEntry);
       addEntry(createdEntry); // Use the 'addEntry' prop to update the entries
-      // navigate("/entries");
+      setEntries([...entries, createdEntry]);
+      navigate("/");
     } catch (error) {
       console.error("Failed to create a new entry:", error.message);
     }
