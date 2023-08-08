@@ -48,7 +48,7 @@ async function edit(req, res) {
 
 async function deleteDay(req, res) {
     try {
-        await Entry.findByIdAndRemove(req.params.id);
+        await Item.findByIdAndRemove(req.params.id);
         res.json({ message: 'Entry deleted successfully' });
     } catch (error) {
         res.status(500).json({ message: 'Error deleting the entry' });
