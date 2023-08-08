@@ -108,14 +108,13 @@ export default function EntriesListPage({ addEntry }) {
         <input
           name="item"
           onChange={handleChange}
-          placeholder="Item 1"
+          placeholder="Add item"
         />
         {/* <input
           name="item"
           onChange={handleChange}
           placeholder="Item 2"
         /> */}
-        <button id="addItemButton" >Add More Items</button>
         <button type="submit">Submit</button>
       </form>     
       )}   
