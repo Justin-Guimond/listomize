@@ -22,3 +22,8 @@ export async function updateEntry(id, entryData) {
 export async function getEntryById(id) {
     return sendRequest(`${BASE_URL}/${id}`);
   }
+
+export async function search(list) {
+    return sendRequest(`${BASE_URL}/search/${list}`);
+  }
+

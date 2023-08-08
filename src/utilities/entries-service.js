@@ -14,3 +14,8 @@ export default async function create(formData) {
     const entry = await entriesAPI.getEntryById(id); 
     return entry;
   }
+
+  export async function search(list) {
+    const entry = await entriesAPI.search(list); 
+    return entry;
+  }

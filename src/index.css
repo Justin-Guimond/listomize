@@ -4,7 +4,7 @@
   --tan-1: #242424;
   --tan-2: #d3d1d1;
   --tan-3: #a3a3a3;
-  --tan-4: #ffb669;
+  --tan-4: #cfcfcf;
   --orange: #2059f6;
   --text-light: #d0d0d0;
   --text-dark: #615954;
@@ -71,7 +71,7 @@ h3 {
 }
 
 h1, h3 {
-  color: #ececec;
+  color: #3b3b3b;
 }
 
 p {

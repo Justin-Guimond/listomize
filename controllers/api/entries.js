@@ -1,18 +1,40 @@
-const Entry = require('../../models/entry');
+const { List, Item} = require('../../models/entry');
 module.exports = {
     create,
     index,
     edit,
     delete: deleteDay,
-    show
+    show,
+    search
 };
 async function index(req, res) {
-    const entries = await Entry.find({});
-    res.json(entries);
+    const lists = await List.find({});
+    const items = await Item.find({}).populate("list_id").exec();
+    res.json(items);
 }
+
+async function search(req, res) {
+    const listExist = await List.find({list: req.params.search});
+    const items = await Item.find({list_id: listExist[0]._id})
+    res.json(items);
+}
+
 async function create(req, res) {
-    const entry = await Entry.create(req.body);
-    res.json(entry);
+    console.log(req.body, "TEST")
+    console.log(req.user);
+    const listExist = await List.find({list: req.body.list});
+    console.log(listExist);
+    if (listExist.length > 0) {
+        const item = await Item.create({list_id: listExist[0]._id, item1: req.body.item, user: req.user._id})
+        console.log(item);
+        res.json(item);
+    } else {
+        const list = await List.create({list: req.body.list, user: req.user._id});
+        console.log(list);
+        const item = await Item.create({list_id: list._id, item1: req.body.item, user: req.user._id})
+        console.log(item, list);
+        res.json(item);
+    }
 }
 
 async function edit(req, res) {
@@ -34,6 +56,6 @@ async function deleteDay(req, res) {
 }
 
 async function show(req, res) {
-    const entries = await Entry.findById(req.params.id);
+    const entries = await List.findById(req.params.id);
     res.json(entries);
 }
