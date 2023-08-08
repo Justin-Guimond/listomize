@@ -90,15 +90,15 @@ export default function EntriesListPage({ addEntry }) {
   return (
     <>
       <h1>Your Lists</h1>
-      <button onClick={handleShowModal} id="showFormButton" >+</button>
+      {/* <button onClick={handleShowModal} id="showFormButton" >+</button>
       {showModal && (
-      // add modal divs
+      // add modal divs */}
       <form onSubmit={handleAddEntry}>
         <select 
           name="list"
           onChange={handleSelectChange}
         >
-          <option value="">Suggestions</option>
+          <option value="">Your Lists</option>
           <option value="Movies">Movies</option>
           <option value="Restaurants">Restaurants</option>
           <option value="Activities">Activities</option>
@@ -117,7 +117,7 @@ export default function EntriesListPage({ addEntry }) {
         /> */}
         <button type="submit">Submit</button>
       </form>     
-      )}   
+      {/* )}    */}
       {entries.map((entry) => (
             <div className='card-container' key={entry._id}>
               {entry.item1}          
