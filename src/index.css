@@ -8,7 +8,8 @@
   --tan-2: #d3d1d1;
   --tan-3: #a3a3a3;
   --tan-4: #cfcfcf;
-  --orange: #2059f6;
+  --yellow: rgb(255, 206, 70);
+  --orange: #fa6b12;
   --text-light: #d0d0d0;
   --text-dark: #615954;
 }
@@ -28,7 +29,7 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--tan-4);
+  background: linear-gradient(-45deg, white, var(--orange));;
   padding: 2vmin;
   height: 100vh;
 }
@@ -39,148 +40,6 @@ main {
   padding: 0 10px 0 10px;
 }
 
-.card-container {
-  display: inline-block;
-  margin: 15px 15px;
-  text-align: center;
-}
-
-.card-img-top{
-  max-width: 286px;
-  max-height: 170.33px;
-}
-
-.card-text {
-  min-height: 50px;
-}
-
-.detail-card {
-  display: flex;
-  justify-content: center;
-}
-
-.icon {
-  width: 25%;
-  height: 25%;
-  margin-top: 50px;
-}
-
-h1, h3 {
-  margin: 5% 0 10% 0;
-}
-
-h3 {
-  text-align: left;
-}
-
-h1, h3 {
-  color: #3b3b3b;
-}
-
-p {
-  color: var(--text-dark);
-  text-align: left;
-  margin-left: 20px;
-}
-
-.navbar-text {
-  color: var(--orange)
-}
-
-li {
-  color: var(--tan-2);
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-#root {
-  height: 100%;
-}
-
-.align-ctr {
-  text-align: center;
-}
-
-.align-rt {
-  text-align: right;
-}
-
-.smaller {
-  font-size: smaller;
-}
-
-.flex-ctr-ctr {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.flex-col {
-  flex-direction: column;
-}
-
-.flex-j-end {
-  justify-content: flex-end;
-}
-
-.scroll-y {
-  overflow-y: scroll;
-}
-
-.section-heading {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: var(--tan-1);
-  color: var(--text-dark);
-  border: .1vmin solid var(--tan-3);
-  border-radius: 1vmin;
-  padding: .6vmin;
-  text-align: center;
-  font-size: 2vmin;
-}
-
-.form-container {
-  padding: 3vmin;
-  background-color: var(--tan-1);
-  border: .1vmin solid var(--tan-3);
-  border-radius: 1vmin;
-}
-
-p.error-message {
-  color: var(--orange);
-  text-align: center;
-}
-
-form {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  gap: 1.25vmin;
-  color: var(--text-light);
-}
-
-label {
-  font-size: 2vmin;
-  display: flex;
-  align-items: center;
-}
-
-input {
-  padding: 1vmin;
-  font-size: 2vmin;
-  border: .1vmin solid var(--tan-3);
-  border-radius: .5vmin;
-  color: var(--text-dark);
-  background-image: none !important; /* prevent lastpass */
-  outline: none;
-}
-
-input:focus {
-  border-color: var(--orange);
-}
 
 button, a.button {
   margin: 1vmin;
@@ -197,22 +56,24 @@ button, a.button {
   cursor: pointer;
 }
 
-button.btn-sm {
-  font-size: 1.5vmin;
-  padding: .6vmin .8vmin;
+.lightningBolt {
+  width: 100px !important;
+  height: 100px !important;
+  color: var(--yellow);
 }
 
-button.btn-xs {
-  font-size: 1vmin;
-  padding: .4vmin .5vmin;
+.lightningBolt::before {
+  content: "@mui/icons-material/BoltRounded";
+  outline: 5px solid black;
+
 }
 
-button:disabled, form:invalid button[type="submit"] {
-  cursor: not-allowed;
-  background-color: var(--tan-4);
-}
-
-button[type="submit"] {
-  grid-column: span 2;
-  margin: 1vmin 0 0;
+#lightningBtn {
+  position: fixed;
+  border-radius: 50%;
+  outline: 5px solid var(--yellow);
+  box-shadow: 0 0 0 6px black;
+  bottom: 25%;
+  left: 50%;
+  transform: translateX(-50%);
 }

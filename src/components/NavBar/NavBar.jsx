@@ -4,15 +4,6 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-
-
-// import Container from 'react-bootstrap/Container';
-// import Navbar from 'react-bootstrap/Navbar';
-// import Nav from 'react-bootstrap/Nav';
-// import NavDropdown from 'react-bootstrap/NavDropdown';
-// import { Link } from 'react-router-dom';
 import * as userService from '../../utilities/users-service';
 
 export default function NavBar({ user, setUser }) {
@@ -26,7 +17,7 @@ export default function NavBar({ user, setUser }) {
         <AppBar position="">
           <Toolbar>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              Listomize
+              <i>Listomize</i>
             </Typography>
             <Button onClick={handleLogOut} color="inherit">Log Out</Button>
           </Toolbar>

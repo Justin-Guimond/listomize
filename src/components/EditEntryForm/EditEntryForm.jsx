@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { updateEntry } from '../../utilities/entries-api';
 import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
 
-export default function EditEntryForm ({ entry, fetchEntries }) {
+export default function EditEntryForm ({ entry, fetchEntries, newEntry }) {
   const [updateModal, setUpdateModal] = useState(false);
   const [updatedItem, setUpdatedItem] = useState(entry.item1);
 
@@ -14,7 +14,7 @@ export default function EditEntryForm ({ entry, fetchEntries }) {
     event.preventDefault();
     try {
       await updateEntry(entry._id, {item1: updatedItem});
-      fetchEntries();
+      fetchEntries(newEntry.list);
       toggleEditModal();
     } catch (error) {
       console.error('Error updating entry:', error)

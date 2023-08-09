@@ -3,6 +3,7 @@ import { getEntries, search, deleteEntry, updateEntry, createEntry } from "../..
 import EditEntryForm from "../../components/EditEntryForm/EditEntryForm";
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import BoltRoundedIcon from '@mui/icons-material/BoltRounded';
+import BoltTwoToneIcon from '@mui/icons-material/BoltTwoTone';
 // import { useNavigate } from "react-router-dom";
 // import { Link } from "react-router-dom";
 
@@ -117,8 +118,7 @@ export default function EntriesListPage({ addEntry }) {
       {entries.map((entry) => (
             <div className='card-container' key={entry._id}>
               {entry.item1}          
-              {entry.list}
-              <EditEntryForm entry={entry} fetchEntries={fetchEntries}/>
+              <EditEntryForm entry={entry} newEntry={newEntry} fetchEntries={fetchEntries}/>
               <DeleteOutlineIcon onClick={() => handleDeleteEntry(entry._id)}></DeleteOutlineIcon>
             </div>
          ))}
@@ -128,10 +128,11 @@ export default function EntriesListPage({ addEntry }) {
            </div>
          )}
          <br />
-         <button><BoltRoundedIcon fontSize="large" onClick={getRandomItem}></BoltRoundedIcon></button>
+         <button id="lightningBtn" ><BoltTwoToneIcon stroke="black" stroke-width=".3px" className="lightningBolt" onClick={getRandomItem}></BoltTwoToneIcon></button>
     </>
   );
 }
 
 // radio button with onchange
-// if value exists/doesntExist in state remove/add
+// new state empty array initially - as items added, added to array
+// if value exists/doesntExist in state remove/add 
