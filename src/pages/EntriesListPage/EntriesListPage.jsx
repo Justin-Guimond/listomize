@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { getEntries, search, deleteEntry, updateEntry, createEntry } from "../../utilities/entries-api";
 import EditEntryForm from "../../components/EditEntryForm/EditEntryForm";
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import BoltRoundedIcon from '@mui/icons-material/BoltRounded';
 // import { useNavigate } from "react-router-dom";
 // import { Link } from "react-router-dom";
 
@@ -96,6 +98,7 @@ export default function EntriesListPage({ addEntry }) {
           <option value="Activities">Activities</option>
           <option value="Coin Toss">Coin Toss</option>
           <option value="Teams">Teams</option>
+          <option value="Other">Other</option>
         </select>
         {/* <input name="list" placeholder="Custom List" onChange={handleChange} /> */}
         <input
@@ -116,7 +119,7 @@ export default function EntriesListPage({ addEntry }) {
               {entry.item1}          
               {entry.list}
               <EditEntryForm entry={entry} fetchEntries={fetchEntries}/>
-              <button onClick={() => handleDeleteEntry(entry._id)}>Delete</button>
+              <DeleteOutlineIcon onClick={() => handleDeleteEntry(entry._id)}></DeleteOutlineIcon>
             </div>
          ))}
          {randomItem && (
@@ -125,7 +128,7 @@ export default function EntriesListPage({ addEntry }) {
            </div>
          )}
          <br />
-         <button onClick={getRandomItem}>Generate Random Item</button>
+         <button><BoltRoundedIcon fontSize="large" onClick={getRandomItem}></BoltRoundedIcon></button>
     </>
   );
 }

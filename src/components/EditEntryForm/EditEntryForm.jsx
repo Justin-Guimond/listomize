@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { updateEntry } from '../../utilities/entries-api';
+import ModeEditOutlineOutlinedIcon from '@mui/icons-material/ModeEditOutlineOutlined';
 
 export default function EditEntryForm ({ entry, fetchEntries }) {
   const [updateModal, setUpdateModal] = useState(false);
@@ -30,7 +31,7 @@ export default function EditEntryForm ({ entry, fetchEntries }) {
               <button type='submit' >Update Item</button>
             </form>   
           </div>
-      </div> : <button onClick={toggleEditModal} >Edit</button>}
+      </div> :<ModeEditOutlineOutlinedIcon onClick={toggleEditModal} ></ModeEditOutlineOutlinedIcon>}
     </>
   );
 }

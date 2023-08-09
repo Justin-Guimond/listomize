@@ -7,6 +7,7 @@ import EntriesListPage from '../EntriesListPage/EntriesListPage';
 import EntryDetailPage from '../EntryDetailPage/EntryDetailPage';
 import UpdateEntryPage from "../UpdateEntryPage/UpdateEntryPage"
 import NavBar from '../../components/NavBar/NavBar';
+import '../../components/NavBar/NavBar.css'
 
 export default function App() {
   const [user, setUser] = useState(getUser());
