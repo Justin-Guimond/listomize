@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { getEntries, search, deleteEntry, updateEntry } from "../../utilities/entries-api";
-import create from "../../utilities/entries-service";
+import { getEntries, search, deleteEntry, updateEntry, createEntry } from "../../utilities/entries-api";
+import EditEntryForm from "../../components/EditEntryForm/EditEntryForm";
 // import { useNavigate } from "react-router-dom";
 // import { Link } from "react-router-dom";
 
@@ -11,12 +11,6 @@ export default function EntriesListPage({ addEntry }) {
   const [randomItem, setRandomItem] = useState(null);
   // const navigate = useNavigate();
   const [isEditing, setIsEditing] = useState(false);
-
-
-
-  // useEffect(() => {
-  //   fetchEntries();
-  // }, []);
 
   // Function to fetch entries from the server
   async function fetchEntries(value) {
@@ -44,8 +38,6 @@ export default function EntriesListPage({ addEntry }) {
     const { name, value } = event.target;
     setNewEntry({...newEntry, [name]: value,
     });
-    // fetchEntries();
-    console.log(newEntry);
   }
 
   function handleSelectChange(event) {
@@ -59,7 +51,7 @@ export default function EntriesListPage({ addEntry }) {
   async function handleAddEntry(evt) {
     evt.preventDefault();
     try {
-      const createdEntry = await create(newEntry);
+      const createdEntry = await createEntry(newEntry);
       addEntry(createdEntry); // Use the 'addEntry' prop to update the entries
       setEntries([...entries, createdEntry]);
     } catch (error) {
@@ -103,6 +95,7 @@ export default function EntriesListPage({ addEntry }) {
           <option value="Restaurants">Restaurants</option>
           <option value="Activities">Activities</option>
           <option value="Coin Toss">Coin Toss</option>
+          <option value="Teams">Teams</option>
         </select>
         {/* <input name="list" placeholder="Custom List" onChange={handleChange} /> */}
         <input
@@ -122,7 +115,7 @@ export default function EntriesListPage({ addEntry }) {
             <div className='card-container' key={entry._id}>
               {entry.item1}          
               {entry.list}
-              {/* <button item1={item1} handleUpdateEntry={handleUpdateEntry} onClick={() => setIsEditing(true)}>Edit</button> */}
+              <EditEntryForm entry={entry} fetchEntries={fetchEntries}/>
               <button onClick={() => handleDeleteEntry(entry._id)}>Delete</button>
             </div>
          ))}
@@ -131,6 +124,7 @@ export default function EntriesListPage({ addEntry }) {
              <h2>Random Item: {randomItem.item1}</h2>
            </div>
          )}
+         <br />
          <button onClick={getRandomItem}>Generate Random Item</button>
     </>
   );

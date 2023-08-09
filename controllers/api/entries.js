@@ -1,4 +1,4 @@
-const { List, Item} = require('../../models/entry');
+const { List, Item } = require('../../models/entry');
 module.exports = {
     create,
     index,
@@ -15,8 +15,11 @@ async function index(req, res) {
 
 async function search(req, res) {
     const listExist = await List.find({list: req.params.search});
-    const items = await Item.find({list_id: listExist[0]._id})
-    res.json(items);
+    if (listExist.length > 0) {const items = await Item.find({list_id: listExist[0]._id})
+        res.json(items);
+    } else {
+        res.json([]);
+    }
 }
 
 async function create(req, res) {
@@ -39,7 +42,7 @@ async function create(req, res) {
 
 async function edit(req, res) {
     try {
-        const updatedEntry = await Entry.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        const updatedEntry = await Item.findByIdAndUpdate(req.params.id, req.body, { new: true });
         res.json(updatedEntry);
     } catch (error) {
         res.status(500).json({ message: 'Error updating the entry' });
