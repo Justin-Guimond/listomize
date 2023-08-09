@@ -74,6 +74,5 @@ button, a.button {
   outline: 5px solid var(--yellow);
   box-shadow: 0 0 0 6px black;
   bottom: 25%;
-  left: 50%;
   transform: translateX(-50%);
 }

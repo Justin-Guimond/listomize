@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { getEntries, search, deleteEntry, updateEntry, createEntry } from "../../utilities/entries-api";
 import EditEntryForm from "../../components/EditEntryForm/EditEntryForm";
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-import BoltRoundedIcon from '@mui/icons-material/BoltRounded';
 import BoltTwoToneIcon from '@mui/icons-material/BoltTwoTone';
+import Switch from '@mui/material/Switch';
+
 // import { useNavigate } from "react-router-dom";
 // import { Link } from "react-router-dom";
 
@@ -117,6 +118,12 @@ export default function EntriesListPage({ addEntry }) {
       {/* )}    */}
       {entries.map((entry) => (
             <div className='card-container' key={entry._id}>
+              <Switch
+                // checked={loading}
+                // onChange={() => setLoading(!loading)}
+                name="loading"
+                color="primary"
+              />
               {entry.item1}          
               <EditEntryForm entry={entry} newEntry={newEntry} fetchEntries={fetchEntries}/>
               <DeleteOutlineIcon onClick={() => handleDeleteEntry(entry._id)}></DeleteOutlineIcon>
