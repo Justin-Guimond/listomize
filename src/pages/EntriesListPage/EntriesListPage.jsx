@@ -7,8 +7,13 @@ import Switch from '@mui/material/Switch';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
-import Input from '@mui/material/Input';
 import Button from '@mui/material/Button';
+import VideocamIcon from '@mui/icons-material/Videocam';
+import RestaurantIcon from '@mui/icons-material/Restaurant';
+import GolfCourseIcon from '@mui/icons-material/GolfCourse';
+import PaidIcon from '@mui/icons-material/Paid';
+import PeopleIcon from '@mui/icons-material/People';
+import MiscellaneousServicesIcon from '@mui/icons-material/MiscellaneousServices';
 
 
 import List from '@mui/material/List';
@@ -109,12 +114,12 @@ export default function EntriesListPage({ addEntry }) {
               defaultValue=""
               onChange={handleSelectChange}
             >
-                <MenuItem value="Movies">Movies</MenuItem>
-                <MenuItem value="Restaurants">Restaurants</MenuItem>
-                <MenuItem value="Activities">Activities</MenuItem>
-                <MenuItem value="Coin Toss">Coin Toss</MenuItem>
-                <MenuItem value="Teams">Teams</MenuItem>
-                <MenuItem value="Other">Other</MenuItem>
+                <MenuItem value="Movies"><VideocamIcon></VideocamIcon>Movies</MenuItem>
+                <MenuItem value="Restaurants"><RestaurantIcon></RestaurantIcon>Restaurants</MenuItem>
+                <MenuItem value="Activities"><GolfCourseIcon></GolfCourseIcon>Activities</MenuItem>
+                <MenuItem value="Coin Toss"><PaidIcon></PaidIcon>Coin Toss</MenuItem>
+                <MenuItem value="Teams"><PeopleIcon></PeopleIcon>Teams</MenuItem>
+                <MenuItem value="Other"><MiscellaneousServicesIcon></MiscellaneousServicesIcon>Other</MenuItem>
             </TextField>
           </div>
             <TextField 
@@ -125,7 +130,7 @@ export default function EntriesListPage({ addEntry }) {
               label="Add Item"
             />
             <br />
-          <Button className="submitBtn" size="small" variant="contained" type="submit" >Submit</Button>
+          <Button className="submitBtn" size="small" variant="outlined" type="submit" >Submit</Button>
     </Box>
 
 
