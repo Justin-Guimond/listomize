@@ -127,10 +127,29 @@ div.cardContainer {
 }
 
 #randomItemBackground {
-  background-image: url(../public/images/confetti-4895082_1920\ \(1\).jpg);
-  width: 100%;
+  position: absolute;
+  background-image: url(../public/images/rikku-sama--tqBymrqzxk-unsplash.jpg);
+  width: 90%;
+  top: 10%;
   max-width: 1000px;
-  height: 800px;
-  margin: 0 auto 80%;
+  height: 500px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  z-index: 2; 
+  text-align: center;
+}
+
+#randomText {
+  position: absolute;
+  margin-top: 45%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  transform: rotate(-10deg);
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 15px;
+  max-width: 300px;
   border-radius: 10px;
 }

@@ -27,7 +27,7 @@ export default function EntriesListPage({ addEntry }) {
   const [newEntry, setNewEntry] = useState({item:"", list:""});
   const [randomItem, setRandomItem] = useState(null);
   const [randomizedEntries, setRandomizedEntries] = useState([]);
-  // const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   // Function to fetch entries from the server
   async function fetchEntries(value) {
@@ -37,18 +37,15 @@ export default function EntriesListPage({ addEntry }) {
     }
   }
   
-  // const handleShowModal = () => {
-  //   setShowModal(true);
-  // };
-
-  // const handleCloseModal = () => {
-  //   setShowModal(false);
-  // };
+  const handleShowModal = () => {
+    setShowModal(!showModal);
+  };
 
   const getRandomItem = () => {
     const randomIndex = Math.floor(Math.random() * entries.length);
     const selectedItem = entries[randomIndex];
     setRandomItem(selectedItem);
+    handleShowModal()
   };
 
   function handleChange(event) {
@@ -153,9 +150,10 @@ export default function EntriesListPage({ addEntry }) {
               </div>
           ))}
 
-        {randomItem && (
+        {showModal && (
           <div id="randomItemBackground">
-            <h2>Random Item: {randomItem.item1}</h2>
+            {/* div for X button and call handleShowmodal */}
+            <h2 id="randomText">{randomItem.item1}</h2>
           </div>
         )}
         <br />
