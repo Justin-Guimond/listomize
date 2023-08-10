@@ -7,6 +7,9 @@ import Switch from '@mui/material/Switch';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
+import Input from '@mui/material/Input';
+import Button from '@mui/material/Button';
+
 
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -103,8 +106,7 @@ export default function EntriesListPage({ addEntry }) {
               id=""
               select
               label="Your Lists"
-              defaultValue="Your Lists"
-              helperText="Please select your list"
+              defaultValue=""
               onChange={handleSelectChange}
             >
                 <MenuItem value="Movies">Movies</MenuItem>
@@ -115,7 +117,16 @@ export default function EntriesListPage({ addEntry }) {
                 <MenuItem value="Other">Other</MenuItem>
             </TextField>
           </div>
+            <TextField 
+              name="item"
+              onChange={handleChange}
+              placeholder="Add item" 
+              variant="outlined"
+              label="Add Item"
+            />
+          <Button size="small" variant="contained" type="submit" >Submit</Button>
     </Box>
+
 
 
 
@@ -173,7 +184,7 @@ export default function EntriesListPage({ addEntry }) {
             </div>
           )}
           <br />
-          <button id="lightningBtn" ><BoltTwoToneIcon stroke="black" stroke-width=".3px" className="lightningBolt" onClick={getRandomItem}></BoltTwoToneIcon></button>
+          <button id="lightningBtn" ><BoltTwoToneIcon stroke="black" strokeWidth=".3px" className="lightningBolt" onClick={getRandomItem}></BoltTwoToneIcon></button>
       </div>
     </div>
   );
