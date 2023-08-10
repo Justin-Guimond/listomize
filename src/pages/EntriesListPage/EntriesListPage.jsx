@@ -1,20 +1,25 @@
-import React, { useState, useEffect } from "react";
-import { getEntries, search, deleteEntry, updateEntry, createEntry } from "../../utilities/entries-api";
+import React, { useState } from "react";
+import { search, deleteEntry, createEntry } from "../../utilities/entries-api";
 import EditEntryForm from "../../components/EditEntryForm/EditEntryForm";
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import BoltTwoToneIcon from '@mui/icons-material/BoltTwoTone';
 import Switch from '@mui/material/Switch';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import MenuItem from '@mui/material/MenuItem';
 
-// import { useNavigate } from "react-router-dom";
-// import { Link } from "react-router-dom";
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import ListSubheader from '@mui/material/ListSubheader';
 
 export default function EntriesListPage({ addEntry }) {
   const [entries, setEntries] = useState([]);
   const [newEntry, setNewEntry] = useState({item:"", list:""});
-  const [showModal, setShowModal] = useState(false);
   const [randomItem, setRandomItem] = useState(null);
-  // const navigate = useNavigate();
-  const [isEditing, setIsEditing] = useState(false);
+  const [randomizedEntries, setRandomizedEntries] = useState([]);
+  // const [showModal, setShowModal] = useState(false);
 
   // Function to fetch entries from the server
   async function fetchEntries(value) {
@@ -24,13 +29,13 @@ export default function EntriesListPage({ addEntry }) {
     }
   }
   
-  const handleShowModal = () => {
-    setShowModal(true);
-  };
+  // const handleShowModal = () => {
+  //   setShowModal(true);
+  // };
 
-  const handleCloseModal = () => {
-    setShowModal(false);
-  };
+  // const handleCloseModal = () => {
+  //   setShowModal(false);
+  // };
 
   const getRandomItem = () => {
     const randomIndex = Math.floor(Math.random() * entries.length);
@@ -63,17 +68,6 @@ export default function EntriesListPage({ addEntry }) {
     }
   }
 
-  // async function handleUpdateEntry(updatedData) {
-  //   try {
-  //     await updateEntry(item1._id, updatedData);
-  //     // Refresh the entry details after updating
-  //     fetchEntries();
-  //     setIsEditing(false); // After update, set isEditing to false to display details again
-  //   } catch (error) {
-  //     console.error('Error updating entry:', error);
-  //   }
-  // }
-
   async function handleDeleteEntry(id) {
     try {
       await deleteEntry(id);
@@ -83,13 +77,50 @@ export default function EntriesListPage({ addEntry }) {
     }
   }
 
+  const handleSwitch = () => {
+
+  }
+
   return (
-    <>
-      <h1>Your Lists</h1>
-      {/* <button onClick={handleShowModal} id="showFormButton" >+</button>
+    <div className="container">
+          {/* <button onClick={handleShowModal} id="showFormButton" >+</button>
       {showModal && (
       // add modal divs */}
-      <form onSubmit={handleAddEntry}>
+
+
+    <Box  
+          component="form"
+          onSubmit={handleAddEntry}
+          sx={{
+            '& .MuiTextField-root': { m: 1, width: '25ch' },
+          }}
+          noValidate
+          autoComplete="off"
+        >
+          <div>
+            <TextField
+              name="list"
+              id=""
+              select
+              label="Your Lists"
+              defaultValue="Your Lists"
+              helperText="Please select your list"
+              onChange={handleSelectChange}
+            >
+                <MenuItem value="Movies">Movies</MenuItem>
+                <MenuItem value="Restaurants">Restaurants</MenuItem>
+                <MenuItem value="Activities">Activities</MenuItem>
+                <MenuItem value="Coin Toss">Coin Toss</MenuItem>
+                <MenuItem value="Teams">Teams</MenuItem>
+                <MenuItem value="Other">Other</MenuItem>
+            </TextField>
+          </div>
+    </Box>
+
+
+
+
+      {/* <form onSubmit={handleAddEntry}>
         <select 
           name="list"
           onChange={handleSelectChange}
@@ -102,44 +133,88 @@ export default function EntriesListPage({ addEntry }) {
           <option value="Teams">Teams</option>
           <option value="Other">Other</option>
         </select>
-        {/* <input name="list" placeholder="Custom List" onChange={handleChange} /> */}
         <input
           name="item"
           onChange={handleChange}
           placeholder="Add item"
         />
-        {/* <input
-          name="item"
-          onChange={handleChange}
-          placeholder="Item 2"
-        /> */}
         <button type="submit">Submit</button>
-      </form>     
-      {/* )}    */}
-      {entries.map((entry) => (
-            <div className='card-container' key={entry._id}>
-              <Switch
-                // checked={loading}
-                // onChange={() => setLoading(!loading)}
-                name="loading"
-                color="primary"
-              />
-              {entry.item1}          
-              <EditEntryForm entry={entry} newEntry={newEntry} fetchEntries={fetchEntries}/>
-              <DeleteOutlineIcon onClick={() => handleDeleteEntry(entry._id)}></DeleteOutlineIcon>
+      </form>   */}
+
+
+
+
+
+
+      <div className='cardContainer'>
+          {entries.map((entry) => (
+                <div className="list" key={entry._id}>
+                  <div>
+                    <EditEntryForm entry={entry} newEntry={newEntry} fetchEntries={fetchEntries}/>
+                    <DeleteOutlineIcon onClick={() => handleDeleteEntry(entry._id)}></DeleteOutlineIcon>
+                  </div>  
+                  <div className="items">
+                    {entry.item1}
+                  </div>
+                    <Switch
+                      edge="end"
+                      // checked={loading}
+                      onChange={handleSwitch}
+                      // name="loading"
+                      color="primary"
+                    />
+                  
+                </div>
+            ))}
+
+          {randomItem && (
+            <div>
+              <h2>Random Item: {randomItem.item1}</h2>
             </div>
-         ))}
-         {randomItem && (
-           <div>
-             <h2>Random Item: {randomItem.item1}</h2>
-           </div>
-         )}
-         <br />
-         <button id="lightningBtn" ><BoltTwoToneIcon stroke="black" stroke-width=".3px" className="lightningBolt" onClick={getRandomItem}></BoltTwoToneIcon></button>
-    </>
+          )}
+          <br />
+          <button id="lightningBtn" ><BoltTwoToneIcon stroke="black" stroke-width=".3px" className="lightningBolt" onClick={getRandomItem}></BoltTwoToneIcon></button>
+      </div>
+    </div>
   );
 }
 
 // radio button with onchange
 // new state empty array initially - as items added, added to array
 // if value exists/doesntExist in state remove/add 
+
+
+  // const [checked, setChecked] = React.useState(['wifi']);
+
+  // const handleToggle = (value) => () => {
+  //   const currentIndex = checked.indexOf(value);
+  //   const newChecked = [...checked];
+
+  //   if (currentIndex === -1) {
+  //     newChecked.push(value);
+  //   } else {
+  //     newChecked.splice(currentIndex, 1);
+  //   }
+
+  //   setChecked(newChecked);
+  // };
+
+
+
+    //   <ListItem>
+    //     <ListItemIcon>
+    //       {/* <EditEntryForm entry={entry} newEntry={newEntry} fetchEntries={fetchEntries}/> */}
+    //       <DeleteOutlineIcon onClick={() => handleDeleteEntry(entry._id)}></DeleteOutlineIcon>        
+    //     </ListItemIcon>
+    //     <ListItemText id="switch-list-label-wifi" primary={entry.item1} />
+    //     <Switch
+    //       edge="end"
+    //       // onChange={handleToggle('wifi')}
+    //       // checked={checked.indexOf('wifi') !== -1}
+    //       inputProps={{
+    //         'aria-labelledby': 'switch-list-label-wifi',
+    //       }}
+    //     />
+    //   </ListItem>
+    // </List>
+
