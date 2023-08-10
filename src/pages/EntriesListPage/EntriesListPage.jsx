@@ -124,7 +124,8 @@ export default function EntriesListPage({ addEntry }) {
               variant="outlined"
               label="Add Item"
             />
-          <Button size="small" variant="contained" type="submit" >Submit</Button>
+            <br />
+          <Button className="submitBtn" size="small" variant="contained" type="submit" >Submit</Button>
     </Box>
 
 
