@@ -114,7 +114,7 @@ export default function EntriesListPage({ addEntry }) {
               defaultValue=""
               onChange={handleSelectChange}
             >
-                <MenuItem value="Movies"><VideocamIcon></VideocamIcon>Movies</MenuItem>
+                <MenuItem value="Movies"><VideocamIcon className="videoIcon" ></VideocamIcon>Movies</MenuItem>
                 <MenuItem value="Restaurants"><RestaurantIcon></RestaurantIcon>Restaurants</MenuItem>
                 <MenuItem value="Activities"><GolfCourseIcon></GolfCourseIcon>Activities</MenuItem>
                 <MenuItem value="Coin Toss"><PaidIcon></PaidIcon>Coin Toss</MenuItem>

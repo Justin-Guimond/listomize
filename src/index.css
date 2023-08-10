@@ -112,3 +112,13 @@ div.cardContainer {
   /* background-color: white !important; */
   width: 251.95px;
 }
+
+.videoIcon {
+  display: flex;
+}
+
+/* centers list icons w/ list names */
+.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+  display: inline-flex !important;
+  justify-content: center !important;
+}
