@@ -145,11 +145,9 @@ export default function EntriesListPage({ addEntry }) {
                     onChange={handleSwitch}
                     // name="loading"
                     color="primary"
-                  />
-                
+                  />                
               </div>
           ))}
-
         {showModal && (
           <div id="randomItemBackground">
             {/* div for X button and call handleShowmodal */}
