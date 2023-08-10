@@ -103,7 +103,7 @@ export default function EntriesListPage({ addEntry }) {
           autoComplete="off"
         >
           <div>
-            <TextField
+            <TextField className="iconAndText"
               name="list"
               id=""
               select

@@ -116,12 +116,11 @@ div.cardContainer {
 .submitBtn {
   /* color: white !important; */
   border: 1px solid rgba(0, 0, 0, 0.2) !important;
-  /* background-color: white !important; */
   width: 251.95px;
 }
 
 /* centers list icons w/ list names */
-.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+.MuiSelect-select {
   display: inline-flex !important;
   justify-content: center !important;
 }
