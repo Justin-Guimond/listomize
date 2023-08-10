@@ -83,6 +83,13 @@ button, a.button {
   transform: translateX(-50%);
 }
 
+#authLightning {
+  border-radius: 50%;
+  outline: 5px solid var(--yellow);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.8), 0 0 0 6px black;
+  left: 50%;
+}
+
 div.container {
   display: flex;
   flex-direction: column;
@@ -117,4 +124,13 @@ div.cardContainer {
 .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
   display: inline-flex !important;
   justify-content: center !important;
+}
+
+#randomItemBackground {
+  background-image: url(../public/images/confetti-4895082_1920\ \(1\).jpg);
+  width: 100%;
+  max-width: 1000px;
+  height: 800px;
+  margin: 0 auto 80%;
+  border-radius: 10px;
 }

@@ -154,7 +154,7 @@ export default function EntriesListPage({ addEntry }) {
           ))}
 
         {randomItem && (
-          <div>
+          <div id="randomItemBackground">
             <h2>Random Item: {randomItem.item1}</h2>
           </div>
         )}
