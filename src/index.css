@@ -23,7 +23,7 @@
 }
 
 body {
-  margin: 0;
+  margin: 0 auto;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
   sans-serif;
@@ -33,6 +33,7 @@ body {
   padding: 2vmin;
   height: 100vh;
   text-align: center;
+  max-width: 1000px;
 }
 
 div.main {

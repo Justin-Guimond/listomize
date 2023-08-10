@@ -77,6 +77,11 @@ export default function EntriesListPage({ addEntry }) {
   }
 
   async function handleDeleteEntry(id) {
+    const userConfirmed = window.confirm('Are you sure you want to delete?');
+
+    if (!userConfirmed) {
+      return;
+    }
     try {
       await deleteEntry(id);
       setEntries(entries.filter(entry => entry._id !== id));
@@ -91,11 +96,6 @@ export default function EntriesListPage({ addEntry }) {
 
   return (
     <div className="container">
-          {/* <button onClick={handleShowModal} id="showFormButton" >+</button>
-      {showModal && (
-      // add modal divs */}
-
-
     <Box  
           component="form"
           onSubmit={handleAddEntry}
@@ -132,67 +132,36 @@ export default function EntriesListPage({ addEntry }) {
             <br />
           <Button className="submitBtn" size="small" variant="outlined" type="submit" >Submit</Button>
     </Box>
-
-
-
-
-
-      {/* <form onSubmit={handleAddEntry}>
-        <select 
-          name="list"
-          onChange={handleSelectChange}
-        >
-          <option value="">Your Lists</option>
-          <option value="Movies">Movies</option>
-          <option value="Restaurants">Restaurants</option>
-          <option value="Activities">Activities</option>
-          <option value="Coin Toss">Coin Toss</option>
-          <option value="Teams">Teams</option>
-          <option value="Other">Other</option>
-        </select>
-        <input
-          name="item"
-          onChange={handleChange}
-          placeholder="Add item"
-        />
-        <button type="submit">Submit</button>
-      </form>   */}
-
-
-
-
-
-
-      <div className='cardContainer'>
-          {entries.map((entry) => (
-                <div className="list" key={entry._id}>
-                  <div>
-                    <EditEntryForm entry={entry} newEntry={newEntry} fetchEntries={fetchEntries}/>
-                    <DeleteOutlineIcon onClick={() => handleDeleteEntry(entry._id)}></DeleteOutlineIcon>
-                  </div>  
-                  <div className="items">
-                    {entry.item1}
-                  </div>
-                    <Switch
-                      edge="end"
-                      // checked={loading}
-                      onChange={handleSwitch}
-                      // name="loading"
-                      color="primary"
-                    />
-                  
+    <div className='cardContainer'>
+        {entries.map((entry) => (
+              <div className="list" key={entry._id}>
+                <div>
+                  <EditEntryForm entry={entry} newEntry={newEntry} fetchEntries={fetchEntries}/>
+                  <DeleteOutlineIcon onClick={() => handleDeleteEntry(entry._id)}></DeleteOutlineIcon>
+                </div>  
+                <div className="items">
+                  {entry.item1}
                 </div>
-            ))}
+                  <Switch
+                    edge="end"
+                    // checked={loading}
+                    onChange={handleSwitch}
+                    // name="loading"
+                    color="primary"
+                  />
+                
+              </div>
+          ))}
 
-          {randomItem && (
-            <div>
-              <h2>Random Item: {randomItem.item1}</h2>
-            </div>
-          )}
-          <br />
-          <button id="lightningBtn" ><BoltTwoToneIcon stroke="black" strokeWidth=".3px" className="lightningBolt" onClick={getRandomItem}></BoltTwoToneIcon></button>
-      </div>
+        {randomItem && (
+          <div>
+            <h2>Random Item: {randomItem.item1}</h2>
+          </div>
+        )}
+        <br />
+        <button id="lightningBtn" ><BoltTwoToneIcon stroke="black" strokeWidth=".3px" className="lightningBolt" onClick={getRandomItem}></BoltTwoToneIcon></button>
     </div>
+  </div>
   );
 }
 
