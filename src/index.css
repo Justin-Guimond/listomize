@@ -9,7 +9,7 @@
   --tan-3: #a3a3a3;
   --tan-4: #cfcfcf;
   --yellow: rgb(255, 206, 70);
-  --orange: #fa6b12;
+  --orange: #fa5b12;
   --text-light: #d0d0d0;
   --text-dark: #615954;
 }
@@ -111,10 +111,6 @@ div.cardContainer {
   border: 1px solid rgba(0, 0, 0, 0.2) !important;
   /* background-color: white !important; */
   width: 251.95px;
-}
-
-.videoIcon {
-  display: flex;
 }
 
 /* centers list icons w/ list names */
