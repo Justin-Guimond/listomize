@@ -140,6 +140,7 @@ export default function EntriesListPage({ addEntry }) {
                   {entry.item1}
                 </div>
                   <Switch
+                    defaultChecked
                     edge="end"
                     // checked={loading}
                     onChange={handleSwitch}
