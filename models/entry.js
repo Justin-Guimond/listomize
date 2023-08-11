@@ -24,11 +24,6 @@ const itemSchema = new Schema({
     minlength: 1,
     required: true,
   },
-  // item2: {
-  //   type: String,
-  //   minlength: 1,
-  //   required: true,
-  // },
   user: {
     type: Schema.Types.ObjectId,
       ref: "User",

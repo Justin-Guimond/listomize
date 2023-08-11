@@ -15,25 +15,25 @@ import PaidIcon from '@mui/icons-material/Paid';
 import PeopleIcon from '@mui/icons-material/People';
 import MiscellaneousServicesIcon from '@mui/icons-material/MiscellaneousServices';
 
-
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import ListSubheader from '@mui/material/ListSubheader';
-
 export default function EntriesListPage({ addEntry }) {
   const [entries, setEntries] = useState([]);
   const [newEntry, setNewEntry] = useState({item:"", list:""});
   const [randomItem, setRandomItem] = useState(null);
-  const [randomizedEntries, setRandomizedEntries] = useState([]);
+  // const [randomizedEntries, setRandomizedEntries] = useState([]);
   const [showModal, setShowModal] = useState(false);
-
-  // Function to fetch entries from the server
+  
+  async function handleSwitch() {
+// remove toggled items
+// specify which list is targeted
+// randomizedEntries= randomizedEntries minus toggled items
+  }
+  
+  // Fetch entries from the server
   async function fetchEntries(value) {
     if (value) {
       const data = await search(value);
       setEntries(data);
+      // setRandomizedEntries(data);
     }
   }
   
@@ -48,6 +48,7 @@ export default function EntriesListPage({ addEntry }) {
     handleShowModal()
   };
 
+  // Add new item
   function handleChange(event) {
     const { name, value } = event.target;
     setNewEntry({...newEntry, [name]: value,
@@ -87,10 +88,6 @@ export default function EntriesListPage({ addEntry }) {
     }
   }
 
-  const handleSwitch = () => {
-
-  }
-
   return (
     <div className="container">
     <Box  
@@ -103,7 +100,7 @@ export default function EntriesListPage({ addEntry }) {
           autoComplete="off"
         >
           <div>
-            <TextField className="iconAndText"
+            <TextField
               name="list"
               id=""
               select
@@ -152,11 +149,13 @@ export default function EntriesListPage({ addEntry }) {
         {showModal && (
           <div id="randomItemBackground">
             {/* div for X button and call handleShowmodal */}
-            <h2 id="randomText">{randomItem.item1}</h2>
+            <h2 id="randomText" className="spin">{randomItem.item1}</h2>
           </div>
         )}
         <br />
-        <button id="lightningBtn" ><BoltTwoToneIcon stroke="black" strokeWidth=".3px" className="lightningBolt" onClick={getRandomItem}></BoltTwoToneIcon></button>
+        <button id="lightningBtn" ><BoltTwoToneIcon stroke="black" strokeWidth=".3px" className="lightningBolt" onClick=
+        // change to accessing randomizedEntries
+        {getRandomItem}></BoltTwoToneIcon></button>
     </div>
   </div>
   );

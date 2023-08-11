@@ -127,7 +127,7 @@ div.cardContainer {
 
 #randomItemBackground {
   position: absolute;
-  background-image: url(../public/images/rikku-sama--tqBymrqzxk-unsplash.jpg);
+  /* background-image: url(../public/images/rikku-sama--tqBymrqzxk-unsplash.jpg); */
   width: 90%;
   top: 10%;
   max-width: 1000px;
@@ -147,8 +147,17 @@ div.cardContainer {
   margin-left: auto;
   margin-right: auto;
   transform: rotate(-10deg);
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: white;
   padding: 15px;
   max-width: 300px;
   border-radius: 10px;
+}
+
+.spin {
+  animation: spin .75s linear 1;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
