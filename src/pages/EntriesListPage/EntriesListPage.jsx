@@ -38,6 +38,10 @@ export default function EntriesListPage({ addEntry }) {
   };
 
   const getRandomItem = () => {
+    if (entries.length === 0) {
+      return;
+    }
+    
     const randomIndex = Math.floor(Math.random() * entries.length);
     const selectedItem = entries[randomIndex];
     setRandomItem(selectedItem);

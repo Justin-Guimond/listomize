@@ -26,7 +26,7 @@ async function search(req, res) {
 
 async function create(req, res) {
     console.log(req.body, "TEST")
-    console.log(req.user);
+    console.log(req.user._id);
     const listExist = await List.find({list: req.body.list});
     console.log(listExist);
     if (listExist.length > 0) {
