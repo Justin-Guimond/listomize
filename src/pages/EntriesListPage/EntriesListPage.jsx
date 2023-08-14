@@ -18,11 +18,19 @@ export default function EntriesListPage({ addEntry }) {
   // const [randomizedEntries, setRandomizedEntries] = useState([]);
   const [showModal, setShowModal] = useState(false);
   
-  async function handleSwitch() {
+  // async function handleSwitch(event) {
+  //   console.log(event.target.checked, event.target.value)
+    // randomizedEntries = entries 
+    // if (event.target.checked) {
+      // check randomizedEntries array if any item1 keys is = event.target.value
+    //   if (randomizedEntries) {
+
+    //   }
+    // }
 // remove toggled items
 // specify which list is targeted
 // randomizedEntries= randomizedEntries minus toggled items
-  }
+  // }
   
   // Fetch entries from the server
   async function fetchEntries(value) {
@@ -41,7 +49,7 @@ export default function EntriesListPage({ addEntry }) {
     if (entries.length === 0) {
       return;
     }
-    
+
     const randomIndex = Math.floor(Math.random() * entries.length);
     const selectedItem = entries[randomIndex];
     setRandomItem(selectedItem);
@@ -139,8 +147,9 @@ export default function EntriesListPage({ addEntry }) {
                   <Switch
                     defaultChecked
                     edge="end"
+                    value={entry.item1}
                     // checked={loading}
-                    onChange={handleSwitch}
+                    // onChange={handleSwitch}
                     // name="loading"
                     color="primary"
                   />                

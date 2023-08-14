@@ -14,7 +14,7 @@ export default function NavBar({ user, setUser }) {
 
     return (
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="">
+        <AppBar position="relative">
           <Toolbar className='navBar' >
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               <i>Listomize</i>

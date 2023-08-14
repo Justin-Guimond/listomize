@@ -7,6 +7,7 @@ module.exports = {
     show,
     search
 };
+
 async function index(req, res) {
     const userId = req.user._id;
     const lists = await List.find({ user: userId });
@@ -16,7 +17,7 @@ async function index(req, res) {
 
 async function search(req, res) {
     const userId = req.user._id;
-    const listExist = await List.find({list: req.params.search, user: userId});
+    const listExist = await List.find({list: req.params.search });
     if (listExist.length > 0) {const items = await Item.find({list_id: listExist[0]._id, user: userId})
         res.json(items);
     } else {
@@ -61,6 +62,7 @@ async function deleteDay(req, res) {
 }
 
 async function show(req, res) {
+    const userId = req.user._id;
     const entries = await List.findById(req.params.id);
     res.json(entries);
 }
