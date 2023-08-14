@@ -10,6 +10,7 @@ const listSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
       ref: "User",
+      required: true,
   },
 }, { timestamps: true });
 
@@ -27,6 +28,7 @@ const itemSchema = new Schema({
   user: {
     type: Schema.Types.ObjectId,
       ref: "User",
+      required: true,
   },
 }, { timestamps: true });
 

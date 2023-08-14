@@ -8,14 +8,16 @@ module.exports = {
     search
 };
 async function index(req, res) {
-    const lists = await List.find({});
-    const items = await Item.find({}).populate("list_id").exec();
+    const userId = req.user._id;
+    const lists = await List.find({ user: userId });
+    const items = await Item.find({ user: userId }).populate("list_id").exec();
     res.json(items);
 }
 
 async function search(req, res) {
-    const listExist = await List.find({list: req.params.search});
-    if (listExist.length > 0) {const items = await Item.find({list_id: listExist[0]._id})
+    const userId = req.user._id;
+    const listExist = await List.find({list: req.params.search, user: userId});
+    if (listExist.length > 0) {const items = await Item.find({list_id: listExist[0]._id, user: userId})
         res.json(items);
     } else {
         res.json([]);
