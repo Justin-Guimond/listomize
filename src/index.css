@@ -72,7 +72,7 @@ button, a.button {
   border-radius: 50%;
   outline: 5px solid #ededed;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.8), 0 0 0 6px black;
-  bottom: 10%;
+  bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -114,7 +114,7 @@ form {
 }
 
 .entries-list {
-  max-height: 300px;
+  max-height: 240px;
   overflow-y: auto;
   overflow-x: hidden;
   padding-right: 10px;
@@ -138,7 +138,7 @@ form {
   justify-content: center !important;
 }
 
-/* #randomItemBackground {
+#randomItemBackground {
   position: absolute;
   width: 90%;
   top: 10%;
@@ -149,7 +149,7 @@ form {
   border-radius: 10px;
   z-index: 2; 
   text-align: center;
-} */
+}
 
 #randomText {
   position: absolute;
