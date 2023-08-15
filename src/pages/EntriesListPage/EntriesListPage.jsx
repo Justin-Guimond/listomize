@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { search, deleteEntry, createEntry } from "../../utilities/entries-api";
 import EditEntryForm from "../../components/EditEntryForm/EditEntryForm";
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
@@ -15,22 +15,25 @@ export default function EntriesListPage({ addEntry }) {
   const [entries, setEntries] = useState([]);
   const [newEntry, setNewEntry] = useState({item:"", list:""});
   const [randomItem, setRandomItem] = useState(null);
-  // const [randomizedEntries, setRandomizedEntries] = useState([]);
+  const [toggledItems, setToggledItems] = useState([]);
   const [showModal, setShowModal] = useState(false);
   
-  // async function handleSwitch(event) {
-  //   console.log(event.target.checked, event.target.value)
-    // randomizedEntries = entries 
-    // if (event.target.checked) {
-      // check randomizedEntries array if any item1 keys is = event.target.value
-    //   if (randomizedEntries) {
+  useEffect(() => {
+    setToggledItems(entries.map(entry => entry.item1));
+  }, [entries]);
 
-    //   }
-    // }
-// remove toggled items
-// specify which list is targeted
-// randomizedEntries= randomizedEntries minus toggled items
-  // }
+  const handleSwitch = (event) => {
+    const { checked, value } = event.target;
+    if (checked) {
+      console.log('Item toggled on:', value);
+      setToggledItems((prevToggledItems) => [...prevToggledItems, value]);
+    } else {
+      console.log('Item toggled off:', value);
+      setToggledItems((prevToggledItems) =>
+        prevToggledItems.filter((item) => item !== value)
+      );
+    }
+  };
   
   // Fetch entries from the server
   async function fetchEntries(value) {
@@ -46,14 +49,16 @@ export default function EntriesListPage({ addEntry }) {
   };
 
   const getRandomItem = () => {
-    if (entries.length === 0) {
+    if (toggledItems.length === 0) {
       return;
     }
 
-    const randomIndex = Math.floor(Math.random() * entries.length);
-    const selectedItem = entries[randomIndex];
+    const randomIndex = Math.floor(Math.random() * toggledItems.length);
+    const selectedItem = toggledItems[randomIndex];
+    console.log('Selected random item:', selectedItem);
     setRandomItem(selectedItem);
     handleShowModal()
+    console.log(selectedItem)
   };
 
   // Add new item
@@ -149,22 +154,19 @@ export default function EntriesListPage({ addEntry }) {
                     edge="end"
                     value={entry.item1}
                     // checked={loading}
-                    // onChange={handleSwitch}
+                    onChange={handleSwitch}
                     // name="loading"
                     color="primary"
                   />                
               </div>
           ))}
-        {showModal && (
+        {showModal && randomItem && (
           <div id="randomItemBackground">
-            {/* div for X button and call handleShowmodal */}
-            <h2 id="randomText" className="spin">{randomItem.item1}</h2>
+            <h2 id="randomText" className="spin">{randomItem}</h2>
           </div>
         )}
         <br />
-        <button id="lightningBtn" ><BoltTwoToneIcon stroke="black" strokeWidth=".3px" className="lightningBolt" onClick=
-        // change to accessing randomizedEntries
-        {getRandomItem}></BoltTwoToneIcon></button>
+        <button id="lightningBtn" ><BoltTwoToneIcon stroke="black" strokeWidth=".3px" className="lightningBolt" onClick={getRandomItem}></BoltTwoToneIcon></button>
     </div>
   </div>
   );
