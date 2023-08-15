@@ -14,10 +14,6 @@
   box-sizing: border-box;
 }
 
-.bg-body-tertiary.navbar.navbar-expand-sm.navbar-light {
-  border-radius: 5px;
-}
-
 body {
   margin: 0 auto;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -25,7 +21,9 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(-45deg, white, var(--orange));;
+  background-color: rgb(249, 249, 249);
+  ;
+  /* background: linear-gradient(-45deg, white, var(--orange));; */
   padding: 2vmin;
   height: 100vh;
   text-align: center;
@@ -60,7 +58,7 @@ button, a.button {
 .lightningBolt {
   width: 100px !important;
   height: 100px !important;
-  color: var(--yellow);
+  color: #ededed;
 }
 
 .lightningBolt::before {
@@ -72,16 +70,16 @@ button, a.button {
 #lightningBtn {
   position: fixed;
   border-radius: 50%;
-  outline: 5px solid var(--yellow);
+  outline: 5px solid #ededed;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.8), 0 0 0 6px black;
-  bottom: 15%;
+  bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
 }
 
 #authLightning {
   border-radius: 50%;
-  outline: 5px solid var(--yellow);
+  outline: 5px solid yellow;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.8), 0 0 0 6px black;
   left: 50%;
 }
@@ -89,6 +87,11 @@ button, a.button {
 div.container {
   display: flex;
   flex-direction: column;
+}
+
+/* navBar */
+.MuiPaper-root {
+  background-color: var(--orange);
 }
 
 form {
@@ -100,6 +103,13 @@ div.cardContainer {
   flex-direction: column;
   text-align: left;
   padding: 0 5%;
+  justify-content: center;
+}
+
+.scrollbar {
+  max-height: 200px;
+  overflow-y: scroll;
+  overflow-x: scroll;
 }
 
 .list {
@@ -110,7 +120,6 @@ div.cardContainer {
 }
 
 .submitBtn {
-  /* color: white !important; */
   border: 1px solid rgba(0, 0, 0, 0.2) !important;
   width: 251.95px;
 }
@@ -143,10 +152,12 @@ div.cardContainer {
   margin-left: auto;
   margin-right: auto;
   transform: rotate(-10deg);
-  background-color: white;
+  color: rgb(237, 237, 237);
+  background-color: var(--orange);
   padding: 15px;
   max-width: 300px;
   border-radius: 10px;
+  overflow: hidden;
 }
 
 .spin {
@@ -157,3 +168,5 @@ div.cardContainer {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+

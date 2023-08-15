@@ -3,7 +3,7 @@ import { search, deleteEntry, createEntry } from "../../utilities/entries-api";
 import EditEntryForm from "../../components/EditEntryForm/EditEntryForm";
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import BoltTwoToneIcon from '@mui/icons-material/BoltTwoTone';
-import { Switch, Box, TextField, MenuItem, Button } from '@mui/material';
+import { Paper, Switch, Box, TextField, MenuItem, Button } from '@mui/material';
 import VideocamIcon from '@mui/icons-material/Videocam';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
 import GolfCourseIcon from '@mui/icons-material/GolfCourse';
@@ -40,7 +40,6 @@ export default function EntriesListPage({ addEntry }) {
     if (value) {
       const data = await search(value);
       setEntries(data);
-      // setRandomizedEntries(data);
     }
   }
   
@@ -142,7 +141,7 @@ export default function EntriesListPage({ addEntry }) {
     <div className='cardContainer'>
         {entries.map((entry) => (
               <div className="list" key={entry._id}>
-                <div>
+                <div className="scrollbar" >
                   <EditEntryForm entry={entry} newEntry={newEntry} fetchEntries={fetchEntries}/>
                   <DeleteOutlineIcon onClick={() => handleDeleteEntry(entry._id)}></DeleteOutlineIcon>
                 </div>  
@@ -153,9 +152,7 @@ export default function EntriesListPage({ addEntry }) {
                     defaultChecked
                     edge="end"
                     value={entry.item1}
-                    // checked={loading}
                     onChange={handleSwitch}
-                    // name="loading"
                     color="primary"
                   />                
               </div>
@@ -171,43 +168,3 @@ export default function EntriesListPage({ addEntry }) {
   </div>
   );
 }
-
-// radio button with onchange
-// new state empty array initially - as items added, added to array
-// if value exists/doesntExist in state remove/add 
-
-
-  // const [checked, setChecked] = React.useState(['wifi']);
-
-  // const handleToggle = (value) => () => {
-  //   const currentIndex = checked.indexOf(value);
-  //   const newChecked = [...checked];
-
-  //   if (currentIndex === -1) {
-  //     newChecked.push(value);
-  //   } else {
-  //     newChecked.splice(currentIndex, 1);
-  //   }
-
-  //   setChecked(newChecked);
-  // };
-
-
-
-    //   <ListItem>
-    //     <ListItemIcon>
-    //       {/* <EditEntryForm entry={entry} newEntry={newEntry} fetchEntries={fetchEntries}/> */}
-    //       <DeleteOutlineIcon onClick={() => handleDeleteEntry(entry._id)}></DeleteOutlineIcon>        
-    //     </ListItemIcon>
-    //     <ListItemText id="switch-list-label-wifi" primary={entry.item1} />
-    //     <Switch
-    //       edge="end"
-    //       // onChange={handleToggle('wifi')}
-    //       // checked={checked.indexOf('wifi') !== -1}
-    //       inputProps={{
-    //         'aria-labelledby': 'switch-list-label-wifi',
-    //       }}
-    //     />
-    //   </ListItem>
-    // </List>
-
