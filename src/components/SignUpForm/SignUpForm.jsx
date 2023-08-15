@@ -73,7 +73,7 @@ export default class SignUpForm extends Component {
               onChange={this.handleChange}
               required
             />
-            <button type="submit" disabled={disable}>
+            <button className="authBtns btmAuthBtns" type="submit" disabled={disable}>
               SIGN UP
             </button>
           </form>

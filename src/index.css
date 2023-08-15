@@ -104,18 +104,27 @@ form {
   align-items: flex-start;
 }
 
+.authBtns {
+  width: 100px;
+  height: 20px;
+}
+
+.btmAuthBtns {
+  position: relative;
+  margin: 10px auto;
+}
+
 .cardContainer {
   display: flex;
   flex-direction: column;
   text-align: left;
   padding: 0 5%;
-  /* padding-top: 140px; */
   justify-content: center;
 }
 
 .entries-list {
   max-height: 240px;
-  overflow-y: auto;
+  overflow-y: scroll;
   overflow-x: hidden;
   padding-right: 10px;
 }
