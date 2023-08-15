@@ -98,8 +98,10 @@ form {
   margin: 10% 0;
 }
 
-.form-container {
-  display: flex;
+.signUpForm {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .cardContainer {
@@ -136,9 +138,8 @@ form {
   justify-content: center !important;
 }
 
-#randomItemBackground {
+/* #randomItemBackground {
   position: absolute;
-  /* background-image: url(../public/images/rikku-sama--tqBymrqzxk-unsplash.jpg); */
   width: 90%;
   top: 10%;
   max-width: 1000px;
@@ -148,7 +149,7 @@ form {
   border-radius: 10px;
   z-index: 2; 
   text-align: center;
-}
+} */
 
 #randomText {
   position: absolute;
