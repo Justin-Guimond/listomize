@@ -9,7 +9,7 @@ export default function AuthPage({ setUser }) {
   return (
     <main>
       <h1><i>Listomize</i></h1>
-      <button id="authLightning" ><BoltTwoToneIcon stroke="black" strokeWidth=".3px" className="lightningBolt" /*onClick={getRandomItem}*/></BoltTwoToneIcon></button>
+      <button id="authLightning" ><BoltTwoToneIcon stroke="black" strokeWidth=".3px" className="lightningBolt"></BoltTwoToneIcon></button>
       <h3>Decision making made easy.</h3>
       <button onClick={() => setShowSignUp(!showSignUp)}>{showSignUp ? 'Log In' : 'Sign Up'}</button>
       { showSignUp ?

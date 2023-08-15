@@ -139,24 +139,26 @@ export default function EntriesListPage({ addEntry }) {
           <Button className="submitBtn" size="small" variant="outlined" type="submit" >Submit</Button>
     </Box>
     <div className='cardContainer'>
-        {entries.map((entry) => (
-              <div className="list" key={entry._id}>
-                <div className="scrollbar" >
-                  <EditEntryForm entry={entry} newEntry={newEntry} fetchEntries={fetchEntries}/>
-                  <DeleteOutlineIcon onClick={() => handleDeleteEntry(entry._id)}></DeleteOutlineIcon>
-                </div>  
-                <div className="items">
-                  {entry.item1}
+      <div className="entries-list" >
+          {entries.map((entry) => (
+            <div className="list" key={entry._id}>
+                  <div className="scrollbar" >
+                    <EditEntryForm entry={entry} newEntry={newEntry} fetchEntries={fetchEntries}/>
+                    <DeleteOutlineIcon onClick={() => handleDeleteEntry(entry._id)}></DeleteOutlineIcon>
+                  </div>  
+                  <div className="items">
+                    {entry.item1}
+                  </div>
+                    <Switch
+                      defaultChecked
+                      edge="end"
+                      value={entry.item1}
+                      onChange={handleSwitch}
+                      color="primary"
+                    />                
                 </div>
-                  <Switch
-                    defaultChecked
-                    edge="end"
-                    value={entry.item1}
-                    onChange={handleSwitch}
-                    color="primary"
-                  />                
-              </div>
-          ))}
+            ))}
+        </div>
         {showModal && randomItem && (
           <div id="randomItemBackground">
             <h2 id="randomText" className="spin">{randomItem}</h2>

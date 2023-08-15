@@ -79,7 +79,7 @@ button, a.button {
 
 #authLightning {
   border-radius: 50%;
-  outline: 5px solid yellow;
+  outline: 5px solid var(--yellow);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.8), 0 0 0 6px black;
   left: 50%;
 }
@@ -98,18 +98,24 @@ form {
   margin: 10% 0;
 }
 
-div.cardContainer {
+.form-container {
+  display: flex;
+}
+
+.cardContainer {
   display: flex;
   flex-direction: column;
   text-align: left;
   padding: 0 5%;
+  /* padding-top: 140px; */
   justify-content: center;
 }
 
-.scrollbar {
-  max-height: 200px;
-  overflow-y: scroll;
-  overflow-x: scroll;
+.entries-list {
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 10px;
 }
 
 .list {
