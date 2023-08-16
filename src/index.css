@@ -33,7 +33,7 @@ body {
 div.main {
   margin: 0 auto;
   max-width: 1000px;
-  padding: 0 10px 0 10px;
+  padding: 0 10px 30px 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -42,7 +42,6 @@ div.main {
 
 button, a.button {
   margin: 1vmin;
-  /* padding: 5px; */
   color: var(--white);
   background-color: var(--orange);
   font-size: 1em;
@@ -75,6 +74,7 @@ button, a.button {
   bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
+  padding: 1vmin;
 }
 
 #authLightning {
@@ -83,6 +83,7 @@ button, a.button {
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.8), 0 0 0 6px black;
   left: 50%;
   margin: 10px 0 20px 0;
+  padding: 1vmin;
 }
 
 div.container {
@@ -120,8 +121,9 @@ form {
 
 .authBtns {
   margin-top: 40px;
-  width: 120px;
+  width: 130px;
   height: 30px;
+  border-radius: 8px;
 }
 
 .authBtnsTop {
