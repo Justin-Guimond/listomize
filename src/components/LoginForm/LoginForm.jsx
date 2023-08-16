@@ -1,6 +1,7 @@
 import { useState } from "react";
 import * as usersService from "../../utilities/users-service";
 import { useNavigate } from "react-router-dom";
+import  TextField from '@mui/material/TextField';
 
 export default function LoginForm({ setUser }) {
   const [credentials, setCredentials] = useState({
@@ -34,21 +35,27 @@ export default function LoginForm({ setUser }) {
     <div>
       <div className="form-container">
         <form className="signUpForm" autoComplete="off" onSubmit={handleSubmit}>
-          <label>Email</label>
-          <input
-            type="text"
-            name="email"
-            value={credentials.email}
-            onChange={handleChange}
-            required
+          <TextField 
+              className="authInputs" 
+              type="text"
+              name="email"
+              value={credentials.email}
+              onChange={handleChange}
+              required
+              label="Email"
+              variant="outlined"
+              placeholder="Email"
           />
-          <label>Password</label>
-          <input
-            type="password"
-            name="password"
-            value={credentials.password}
-            onChange={handleChange}
-            required
+          <TextField 
+              className="authInputs" 
+              type="password"
+              name="password"
+              value={credentials.password}
+              onChange={handleChange}
+              required
+              label="Password"
+              variant="outlined"
+              placeholder="Password"
           />
           <button className="authBtns btmAuthBtns" type="submit">LOG IN</button>
         </form>

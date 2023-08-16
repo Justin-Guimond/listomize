@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { signUp } from "../../utilities/users-service";
-import { useNavigate } from "react-router-dom";
+import  TextField from '@mui/material/TextField';
 
 export default class SignUpForm extends Component {
   state = {
@@ -41,37 +41,45 @@ export default class SignUpForm extends Component {
       <div>
         <div >
           <form className="signUpForm" autoComplete="off" onSubmit={this.handleSubmit}>
-            <label>Name</label>
-            <input
+            <TextField
+              className="authInputs" 
               type="text"
               name="name"
               value={this.state.name}
               onChange={this.handleChange}
               required
+              label="Name"
+              variant="outlined"
             />
-            <label>Email</label>
-            <input
+            <TextField 
+              className="authInputs" 
               type="email"
               name="email"
               value={this.state.email}
               onChange={this.handleChange}
               required
+              label="Email"
+              variant="outlined"
             />
-            <label>Password</label>
-            <input
+            <TextField 
+              className="authInputs" 
               type="password"
               name="password"
               value={this.state.password}
               onChange={this.handleChange}
               required
+              label="Password"
+              variant="outlined"
             />
-            <label>Confirm</label>
-            <input
+            <TextField 
+              className="authInputs" 
               type="password"
               name="confirm"
               value={this.state.confirm}
               onChange={this.handleChange}
               required
+              label="Confirm"
+              variant="outlined"
             />
             <button className="authBtns btmAuthBtns" type="submit" disabled={disable}>
               SIGN UP

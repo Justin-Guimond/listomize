@@ -114,6 +114,10 @@ form {
   margin: 10px auto;
 }
 
+.authInputs {
+  margin: 10px !important;
+}
+
 .cardContainer {
   display: flex;
   flex-direction: column;
