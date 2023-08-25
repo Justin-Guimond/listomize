@@ -23,7 +23,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(249, 249, 249);
   ;
-  /* background: linear-gradient(-45deg, white, var(--orange));; */
   padding: 2vmin;
   height: 100vh;
   text-align: center;
